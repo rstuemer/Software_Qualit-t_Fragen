@@ -430,54 +430,105 @@ kann in neuen Projekten wieder verwendet werden.
         =&gt; Prozessmaße</li>
       <li>Metriken sind eine Hilfe die Qualität eines konkreten<br />
         Projektes zu messen.<br />
-        =&gt; Projektmaße</li>
+        =&gt; Projektmaße  </li>
     </ul>
   </li>
-  <li><strong>Koh&auml;sion</strong>
-    <ul>
-      <li> ist ein Maß, wie eng zwei Funktionen, die eine<br />
-        Komponente ausführt, mit einander in Relations stehen. </li>
+<li><strong>Objekt-orientierte Metriken</strong>
+  (Produktmetriken für OO)  
+  <ul>
+    <li><strong>Koh&auml;sion</strong>
+      <ul>
+        <li> ist ein Maß, wie eng zwei Funktionen, die eine<br />
+          Komponente ausführt, mit einander in Relations stehen. </li>
+        <li>In der OO-Programmierung ist es gut Verantwortlichkeiten<br />
+          Klassen auf eine Weise zuzuordnen, die die Kohäsion<br />
+          hoch hält. Die Wahrscheinlichkeit der Wiederverwendung<br />
+          wächst und die Komplexität bleibt handhabbar.<br />
+          </li>
+        <li>Die Kohäsion ist ein Maß, wie stark Verantwortlichkeiten<br />
+          einer einzigen Klasse in Zusammenhang stehen und<br />
+          fokussiert sind.<br />
+          </li>
+        <li>Kohäsion sinkt, wenn<br />
+          <ul>
+            <li>Die Verantwortlichkeit (Methoden) einer Klasse wenig<br />
+              gemeinsam haben.<br />
+              </li>
+            <li>Methoden viele verschiedene Aktivitäten ausführen und<br />
+              oft wechselnde Daten nutzen.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    <li><strong>Kopplung</strong>
+      <ul>
+        <li>ist ein Maß, wie eng zwei Komponenten mit einander in<br />
+          Relation stehen oder wie stark sie von einander<br />
+          abhängen.</li>
+        <li>In der OO-Programmierung ist Kopplung ein Maß, wie<br />
+          stark eine Klasse mit einer anderen Klasse verbunden<br />
+          ist.<br />
+          </li>
+        <li>Kopplung wächst, wenn zwischen zwei Klassen A und B:<br />
+          <ul>
+            <li>A ein Attribut hat, das auf B referenziert oder vom<br />
+              Typ B ist.<br />
+              </li>
+            <li>A einen Dienst eines Objekts von B aufruft.<br />
+              </li>
+            <li>A eine Methode hat, die B referenziert (durch eine<br />
+              Rückgabetyp oder Parameter).<br />
+              </li>
+            <li>A eine Unterklasse von B ist (oder B implementiert).</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
     </ul>
-  </li>
-  <li><strong>Kopplung</strong>
-    <ul>
-      <li>ist ein Maß, wie eng zwei Komponenten mit einander in<br />
-        Relation stehen oder wie stark sie von einander<br />
-        abhängen. </li>
-    </ul>
-  </li>
-  <li> <strong>Zyklomatische Komplexit&auml;t</strong>
-    <ul>
-      <li>Es stammt aus der Graphentheorie und dient dazu<br />
-        Zyklen zu finden.</li>
-      <li>Es misst direkt die Anzahl der linear unabhängigen<br />
-        Pfade durch den Source Code.</li>
-      <li>Die zyklomatische Komplexität wird berechnet, indem<br />
-        ein Graph den Kontrollfluss durchs Programm darstellt.</li>
-      <li>Die Knoten des Graphen entsprechen den Befehlen eines<br />
-        Programms</li>
-      <li>Ein direkte Kante verbindet zwei Knoten, wenn der zweite<br />
-        Befehl direkt nach dem ersten Befehl folgt.      </li>
-      <li>Definition<br />
-        M = E − N + P<br />
-        wobei<br />
-        M = Zyklomatische Komplexität<br />
-        E = Anzahl der Kanten (E=Edges) des Graphen<br />
-        N = Anzahl der Knoten (N=Nodes) des Graphen<br />
-        P = Anzahl der verbundenen Komponenten<br />
-        (normalerweise P = 2).</li>
-    </ul>
-  </li>
-  <li><strong>Healsted</strong></li>
-  <li><strong>Objekt-orientierte Metriken</strong></li>
-  <li><strong>Goal
-    Question Metric (GQM)</strong></li>
+</li>
   <li><strong>Welche Prozessmetriken kennen Sie?</strong>
     <ul>
-      <li></li>
+      <li>COCOMO II
+        <ul>
+          <li>Es unterstützt moderne Software-Engineering-Verfahren,<br />
+            wie iteratives und objektorientiertes Vorgehen</li>
+        </ul>
+      </li>
+      <li>CMMI (Capability Maturity Model Integration)
+        <ul>
+          <li>hilft Software-Unternehmen bei der Verbesserung der<br />
+            eigenen Prozesse</li>
+          <li>ist kein theoretische Modell, sondern stellt<br />
+            Vorgehensweisen zusammen, die sich in der Praxis<br />
+            vieler Unternehmen bewährt haben (Best Practises) </li>
+        </ul>
+      </li>
     </ul>
   </li>
-  <li><strong>Welche Produktmetriken kennen Sie?</strong><br>
+  <li><strong>Welche Produktmetriken kennen Sie?</strong>
+    <ul>
+      <li>Zyklomatische Komplexität</li>
+      <li>Halstead-Maße
+        <ul>
+          <li>Die Halstead Maße sind z. B. Komplexität, Umfang und<br />
+            Aufwand.<br />
+          </li>
+          <li>Sie werden auf der Basis von Source Code<br />
+            gemessen/berechnet.<br />
+          </li>
+          <li>Sie basieren auf theoretischen Überlegungen, sind jedoch<br />
+            zum Teil mit Erfolg empirisch validiert worden.<br />
+            [Liggesmeyer 2002]<br />
+          </li>
+          <li>Die Maße sind daher nicht - wie McCabes Maß –<br />
+            unmittelbar nachvollziehbar.<br />
+          </li>
+          <li>Viele Qualitätsbeauftragte sind auch mit der Interpretation<br />
+            unsicher und wenden Halstead kaum noch an (vgl.<br />
+          [Schneider 2007]) </li>
+        </ul>
+      </li>
+    </ul>
   </li>
   <li><strong>Was ist LOC? </strong>
     <ul>
@@ -540,12 +591,111 @@ kann in neuen Projekten wieder verwendet werden.
       </li>
     </ul>
   </li>
-  <li><strong>Was sind FP? Wie funktioniert FPA?<br>
+  <li><strong>Was sind FP? Wie funktioniert FPA?</strong>
+    <ul>
+      <li>Function-Points werden in der Softwareentwicklung als Basis für Aufwandsschätzung und Benchmarking herangezogen. Die Function-Point-Analyse allein stellt allerdings kein Verfahren zur Aufwandsschätzung dar, sondern dient der reinen Größenbestimmung von EDV-Anforderungen.</li>
+      <li><strong>Function Point Methode:</strong><em>
+(verbesserungsfaehig, ist nicht die analyse (FPAAAA))        </em>
+<ol>
+          <li>Schritt: Jede Anforderung einer Kategorie zuordnen</li>
+          <li>Schritt: Klassifizierung</li>
+          <li> Schritt: Eintrag in Berechnungsformular</li>
+          <li>Schritt: Bewertung der Einflußfaktoren</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Zyklomatische Komplexit&auml;t</strong>
+    <ul>
+      <li>Es stammt aus der Graphentheorie und dient dazu<br />
+        Zyklen zu finden.</li>
+      <li>Es misst direkt die Anzahl der linear unabhängigen<br />
+        Pfade durch den Source Code.</li>
+      <li>Die zyklomatische Komplexität wird berechnet, indem<br />
+        ein Graph den Kontrollfluss durchs Programm darstellt.</li>
+      <li>Die Knoten des Graphen entsprechen den Befehlen eines<br />
+        Programms</li>
+      <li>Ein direkte Kante verbindet zwei Knoten, wenn der zweite<br />
+        Befehl direkt nach dem ersten Befehl folgt. </li>
+      <li>Definition<br />
+        M = E − N + P<br />
+        wobei<br />
+        M = Zyklomatische Komplexität<br />
+        E = Anzahl der Kanten (E=Edges) des Graphen<br />
+        N = Anzahl der Knoten (N=Nodes) des Graphen<br />
+        P = Anzahl der verbundenen Komponenten<br />
+        (normalerweise P = 2).</li>
+    </ul>
+  </li>
+  <li><strong>Wie funktioniert die Zykomatische Komplexit&auml;t?</strong>  
+    <ul>
+      <li>„ist wahrscheinlich das am weitesten verbreitet Maß<br />
+        in Analyse und Testwerkzeugen.</li>
+    </ul>
+  </li>
+  
+  <ul>
+    <li>stammt aus der Graphentheorie und dient dazu<br />
+    Zyklen zu finden.</li>
+    <li>Es misst direkt die Anzahl der linear unabhängigen<br />
+      Pfade durch den Source Code.<br />
+    </li>
+    <li>Die zyklomatische Komplexität wird berechnet, indem<br />
+    ein Graph den Kontrollfluss durchs Programm darstellt.</li>
+    <li>Zyklomatische Komplexität im Programmcode einer<br />
+      strukturierten Sprache nach [Schneider 2007]<br />
+      Zyklomatische Komplexität [auf Codebasis] =<br />
+      Anzahl der Verzeigungen (if)<br />
+      + Anzahl der Schleifen (for, while, repeate usw.)<br />
+      + je: (Anzahl der Zweige -1) (case-, switch-Verzweigungen)<br />
+      + 1<br />
+    (Ein völlig leere Programm würde die Metrik 1 ergeben)</li>
+    <li>Dies impliziert, dass ein Modul mit hoher Komplexität<br />
+      mehr Testaufwand erfordert als ein Modul mit geringer<br />
+      Komplexität, da eine höhere Komplexität mehr Pfade<br />
+      durch den Code anzeigt.<strong><br>
     </strong></li>
-  <li><strong>Wie funktioniert die Zykomatische Komplexit&auml;t?<br>
-    </strong></li>
-  <li><strong>Welche OO-Metriken kennen Sie?<br>
-    </strong></li>
+  </ul>
+  <li><strong>Welche OO-Metriken kennen Sie?</strong>
+    <ul>
+      <li>Weighted Methods per Class (WMC)</li>
+      <li>Depth of the Inheritance Tree (DIT)</li>
+      <li>Number Of Children (NOC)</li>
+      <li>Coupling Between Objects (CBO)</li>
+      <li>Response For a Class (RFC)</li>
+      <li>Lack of COhesion in Methods (LCOM)
+        <ul>
+          <li>Weitere OO-MAsse
+            <ul>
+              <li>MHF Method Hiding Factor</li>
+              <li>AHF Attribute Hiding Factor</li>
+              <li>MIF Method Inheritance Factor</li>
+              <li>AIF Attribute Inheritance Factor</li>
+              <li>PF Polymorphism Factor</li>
+              <li>CF Coupling Factor</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Goal
+    Question Metric (GQM)</strong>
+    <ul>
+      <li>ist eine systematische Vorgehensweise zur Erstellung spezifischer Qualitätsmodelle im Bereich der Softwareentwicklung. Diese lässt sich als Baumstruktur darstellen. Als Wurzel steht das Ziel (Goal), das über die Knoten (Questions) zu den Blättern (Metric) verfeinert wird. Auf diesem Weg werden Fragen und Softwaremaße abgeleitet. Auf dem Weg von den Blättern zur Wurzel werden die gemessenen Werte interpretiert.<br />
+        Geeignete Metriken lassen sich in der Softwaremetrie identifizieren über die Beantwortung der folgenden Fragen:<br />
+        <ul>
+          <li>Welches Ziel soll durch die Messung erreicht werden? (Goal)<br />
+          </li>
+          <li>Was soll gemessen werden bzw. welche Fragen soll die Messung beantworten? (Question)<br />
+          </li>
+          <li>Welche Metrik(en) sind in der Lage, die notwendigen Eigenschaften zu beschreiben? (Metric)
+            <strong><br>
+          </strong></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
   <li><strong>Wie Funktioniert GQM?&nbsp;</strong>
     <ul>
       <li>GQM ist eine Anleitung, wie man systematisch<br />
