@@ -14,7 +14,7 @@
 </style>
 </head>
 <body style="margin: 2cm; direction: ltr; max-width: 20.999cm;">
-<h1>Rambow 1</h1>
+<h1>Rambow</h1>
 <ul>
   <li><strong>!!!!abkuerzungen !!!!</strong>
 <ul>
@@ -60,15 +60,27 @@
       </li>
       <li> Keep it shy
         <ul>
-          <li><br />
-          </li>
+          <li></li>
         </ul>
       </li>
+      <li> open closed principle
+        <ul>
+          <li> (&quot;Offen-Geschlossen Prinzip&quot;, kurz OCP) ist ein Prinzip beim Objektorientierten Entwurf von Software. Es beschäftigt sich mit der Erweiterbarkeit von bestehender Software.<br />
+            Im allgemeinen wird das OCP beschrieben durch:<br />
+            Software-Einheiten sollten offen für Erweiterungen, aber geschlossen für Modifikationen sein.<br />
+            Mit Software-Einheiten sind hier Module, Klassen, Methoden etc. gemeint. Eine Erweiterung in diesem Sinne verändert das vorhandene Verhalten der Einheit nicht, vielmehr erweitert es die Einheit nur zusätzliche Funktionen oder Daten. Eine Modifikation hingegen, würde das bisherige Verhalten der Einheit ändern.<br />
+          </li>
+        </ul>
+        <br />
+    </li>
     </ul>
   </li>
-  <li>3kiss open closed principle<br />
-    graphiken anschauen (hudson testen)<br />
-    automatisierung (was sollte man automatisieren (wie weit))<br />
+  <li><strong>graphiken anschauen (hudson testen)</strong>
+    <ul>
+      <li><img src="aufbau_cis.png" ></li>
+    </ul>
+  </li>
+  <li><strong>automatisierung (was sollte man automatisieren (wie weit))</strong><br />
   </li>
   <li><strong>Unit-Tests</strong>
     <ul>
@@ -79,12 +91,12 @@
         <ul>
           <li> man denkt in Units, also in funktional<br />
             zusammengehörigen Code-Einheiten<br />
-            </li>
+          </li>
         </ul>
       </li>
       <li> Tests spezifizieren die Funktionsweise von<br />
         Programmteilen, Methoden<br />
-        </li>
+      </li>
       <li> Software ohne Tests ist Legacy Code!<br />
         und somit unwartbar</li>
       <li>Verbreitetsten dynamischen, funktionalen<br />
@@ -104,22 +116,68 @@
       <li>Units werden in Isolation getestet<br />
         <ul>
           <li>Keine Datenbankzugriffe<br />
-            </li>
+          </li>
           <li> Kein Aufruf von Methoden anderer Klassen oder<br />
             Framework-Methdoden<br />
-            </li>
+          </li>
           <li> Keine Netzwerk-Services<br />
-            </li>
+          </li>
         </ul>
       </li>
       <li> Dadurch wird erreicht, das ein Fehler in einem<br />
         nur sehr kleinen Programmteil auftreten kann<br />
-        </li>
+      </li>
       <li> Beim Testen einer Methode sollte eine hohe<br />
         Abdeckung das Ziel sein</li>
     </ul>
   </li>
-  <li><a href="http://martinfowler.com/articles/continuousIntegration.html">continious integration,</a></li>
+  <li><a href="http://martinfowler.com/articles/continuousIntegration.html"><strong>continious integration,</strong></a>
+    <ul>
+      <li>Continuous Integration is a software development practice where<br />
+        members of a team integrate their work frequently, usually each<br />
+        person integrates at least daily - leading to multiple integrations<br />
+        per day. Each integration is verified by an automated build<br />
+      (including test) to detect integration errors as quickly as possible.</li>
+      <li>Continous Integration bedeutet für uns<br />
+        <ul>
+          <li> Benutzung des VCS und stänige Updates des<br />
+            Codes der Anderen<br />
+            </li>
+          <li> Der PushButton/ant-triggered-Build, der letzten<br />
+            Vorlesungen muss nun automatisch und<br />
+            kontinuierlich ausgeführt werden soll.<br />
+            </li>
+        </ul>
+      </li>
+      <li> Dadurch werden Integrationsprobleme, wie<br />
+        Kompilierfehler (fehlende Klassen, Methoden)<br />
+        und fehlschlagende Tests rechtzeitig entdeckt</li>
+      <li>Vorgehensweise, bei der kleine lokal<br />
+        funktionsfähige Codeänderungen häufig<br />
+        zusammengeführt werden<br />
+      </li>
+      <li> Dabei kann man davon ausgehen, das diese<br />
+        Änderungen eine Granularität besitzen, die<br />
+        es ermöglicht Fehler im Gesamtsystem<br />
+        schnell zu identifizieren<br />
+      </li>
+      <li> Ziel ist es ständig ein funktionsfähiges<br />
+        Gesamtsystem zu haben, das nur nur kurz<br />
+        hinter der Funktionsfähigkeit der Entwicklerversion<br />
+      liegt</li>
+      <li>Für ein erfolgreiches CI muss täglich<br />
+        mindestens einmal pro Entwickler Code ins<br />
+        Repository übertragen werden<br />
+      </li>
+      <li> Je häufiger dies geschieht desto einfacher ist<br />
+        es einen Konflikt zu identifizieren<br />
+      </li>
+      <li> Um dies zu erreichen müssen die<br />
+        Arbeitspakete aufgeteilt werden, so das sich<br />
+        nach einigen Stunden etwas sinnvolles<br />
+      einstellen lässt.</li>
+    </ul>
+  </li>
   <li><strong>automatisierte tests!!!!</strong>
     <ul>
       <li><strong>Push-Button-Tests</strong>
