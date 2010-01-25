@@ -347,28 +347,45 @@ ist Handbuch als KM-Plan eingeschr&auml;nkt auf:<br>
   </li>
 <li>kann in neuen Projekten wieder verwendet werden.</li>
 <ul>
-  <li><strong>Projektstruktur</strong></li>
-  <li><strong>Repository</strong>
+  <li><strong>Projektstruktur</strong>
     <ul>
-      <li>dient als zentrale Ablage im Projekt<br />
-        ist nach der Projektstruktur aufgebaut<br />
+      <li>ist die Hierarchie der Verzeichnisse im Projekt<br />
       </li>
-      <li>speichert die Instanzen der Konfigurationselemente:<br />
-        <ul>
-          <li>Textdateien, z.B. Sourcecode<br />
-            </li>
-          <li>Binärdateien, z.B. Word-Dokumente für<br />
-            Dokumentation<br />
-            (eher Probleme bei den Deltas bei älteren<br />
-            Versionskontrollen (CVS) und beim Vergleichen von<br />
-            Dateien)<br />
-            </li>
+      <li>sollte pro Konfigurationselement separater Ast (ein<br />
+        Verzeichnis) enthalten.<br />
+      </li>
+      <li>sollte Conway‘s Law berücksichtigen, z. B. Teilteams<br />
+        Conway‘s Law: Die Struktur eines Projektes<br />
+        entwickelt sich analog der Projektorganisation.<br />
+      </li>
+      <li>sollte die Software-Architektur berücksichtigen<br />
+      </li>
+      <li>sollte technische Einflussfaktoren berücksichtigen, z.<br />
+        B. Branching eines Konfigurationswerkzeuges</li>
+    </ul>
+  </li>
+  <li><strong>Repository</strong>
+    (<strong>Was leistet ein Repository?</strong>)
+  <ul>
+    <li>dient als zentrale Ablage im Projekt<br />
+      ist nach der Projektstruktur aufgebaut<br />
+      </li>
+    <li>speichert die Instanzen der Konfigurationselemente:<br />
+      <ul>
+        <li>Textdateien, z.B. Sourcecode<br />
+          </li>
+        <li>Binärdateien, z.B. Word-Dokumente für<br />
+          Dokumentation<br />
+          (eher Probleme bei den Deltas bei älteren<br />
+          Versionskontrollen (CVS) und beim Vergleichen von<br />
+          Dateien)<br />
+          </li>
         </ul>
       </li>
-      <li>gewährleistet die Datensicherheit der Instanzen der<br />
-        Konfigurationselemente<br />
-        </li>
-      <li>setzen interne Versionierung ein</li>
+    <li>gewährleistet die Datensicherheit der Instanzen der<br />
+      Konfigurationselemente<br />
+      </li>
+    <li>setzen interne Versionierung ein</li>
     </ul>
   </li>
   <li><strong>Versionierung</strong>
@@ -452,16 +469,9 @@ ist Handbuch als KM-Plan eingeschr&auml;nkt auf:<br>
   <li><strong>Wie kann nun ein Releaseplan vom Repository<br />
     unterstützt werden?<br />
   </strong></li>
-  <li><strong>Welche Versionsnummer gehört zu welcher<br />
-    Releasenummer?</strong>
+  <li><strong>Welche Versionsnummer gehört zu welcher Releasenummer?</strong>
     <ul>
-      <li>Release x.y.z 
-        <ul>
-          <li>Hauptrelease (x)</li>
-          <li>Wartungsrelease (y)</li>
-          <li>Patches (z)</li>
-        </ul>
-      </li>
+      <li> </li>
     </ul>
   </li>
   <li><strong>Warum soll (nicht) parallel gearbeitet werden?<br />
@@ -489,12 +499,21 @@ ist Handbuch als KM-Plan eingeschr&auml;nkt auf:<br>
   <li><strong>Was sind
     die Ziele des Konfigurationsmanagements?</strong></li>
   <li><strong>Welche Konfigurationselemente kennen Sie?</strong></li>
-  <li><strong>Was sind keine Konfigurationselemente?<br>
+  <li><strong>Was sind keine Konfigurationselemente?</strong><strong><br>
   </strong></li>
-  <li><strong>Was leistet ein Repository?<br>
-  </strong></li>
-  <li><strong>Wie setzt sich eine Releasenummer zusammen?<br>
-  </strong></li>
+  <li><strong>Wie setzt sich eine Releasenummer zusammen?</strong>
+    <ul>
+      <li>Release x.y.z 
+        <ul>
+          <li>Hauptrelease (x)</li>
+          <li>Wartungsrelease (y)</li>
+          <li>Patches (z)
+            <strong><br>
+          </strong></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
   <li><strong>Was ist im Gegensatz zur Releasenummer eine Versionsnummer?</strong><br>
   </strong></li>
   <li><strong>Wozu dienen Tags?</strong>
