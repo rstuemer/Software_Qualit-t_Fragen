@@ -330,37 +330,110 @@
     werden, um auf ge&auml;nderte Anforderungen zu reagieren.</li>
 </ul>
 ist Handbuch als KM-Plan eingeschr&auml;nkt auf:<br>
-Aktivit&auml;ten<br>
-Ressourcen<br>
-enth&auml;lt:<br>
-Namenkonventionen<br>
-Richtlinien zur Codeformatierung<br>
-Installationsanleitungen etc.<br>
-Beschreibung der Konfigurationselemente etc.<br>
-erleichtert die Einarbeitung neuer Teammitglieder<br>
-kann in neuen Projekten wieder verwendet werden.
+<li>Aktivit&auml;ten</li>
+</li>
+<li>Ressourcen<br>
+  enth&auml;lt:<br>
+</li>
+<li>Namenkonventionen<br>
+  </li>
+<li>Richtlinien zur Codeformatierung<br>
+  </li>
+<li>Installationsanleitungen etc.<br>
+  </li>
+<li>Beschreibung der Konfigurationselemente etc.<br>
+  </li>
+<li>erleichtert die Einarbeitung neuer Teammitglieder<br>
+  </li>
+<li>kann in neuen Projekten wieder verwendet werden.</li>
 <ul>
-  <li>Projektstruktur</li>
-  <li>Repository</li>
-  <li>Versionierung</li>
-  <li>Releasemanagement</li>
-  <li>SVN</li>
-  <li>Was sind
-    die Ziele des Konfigurationsmanagements?</li>
-  <li>Welche Konfigurationselemente kennen Sie?</li>
-  <li>Was sind keine Konfigurationselemente?<br>
+  <li><strong>Projektstruktur</strong></li>
+  <li><strong>Repository</strong>
+    <ul>
+      <li>dient als zentrale Ablage im Projekt<br />
+        ist nach der Projektstruktur aufgebaut<br />
+      </li>
+      <li>speichert die Instanzen der Konfigurationselemente:<br />
+        <ul>
+          <li>Textdateien, z.B. Sourcecode<br />
+            </li>
+          <li>Binärdateien, z.B. Word-Dokumente für<br />
+            Dokumentation<br />
+            (eher Probleme bei den Deltas bei älteren<br />
+            Versionskontrollen (CVS) und beim Vergleichen von<br />
+            Dateien)<br />
+            </li>
+        </ul>
+      </li>
+      <li>gewährleistet die Datensicherheit der Instanzen der<br />
+        Konfigurationselemente<br />
+        </li>
+      <li>setzen interne Versionierung ein</li>
+    </ul>
   </li>
-  <li>Was leistet ein Repository?<br>
+  <li><strong>Versionierung</strong>
+    <ul>
+      <li>Versionierung ermöglicht<br />
+        <ul>
+          <li>das Wiederherstellen eines alten Standes der<br />
+            Datei<br />
+            </li>
+          <li>das Wiederherstellen irrtümlich gelöschter Datei<br />
+            </li>
+          <li>den Vergleich zweier Versionen einer Datei<br />
+            </li>
+          <li>die parallele Arbeit an zwei unterschiedlichen<br />
+            Version der selben Datei<br />
+            </li>
+        </ul>
+      </li>
+      <li>Um die Versionen einer Datei eindeutig zu<br />
+        identifizieren, werden diese vom Repository<br />
+        durchnummeriert (Versionsnummern).</li>
+    </ul>
   </li>
-  <li>Wie setzt sich eine Releasenummer zusammen?<br>
+  <li><strong>Releasemanagement</strong>
+    <ul>
+      <li>Release<br />
+        Produkt, das an den Endanwender ausgeliefert wird.<br />
+      </li>
+      <li>Die Auslieferungen werden geplant =&gt; Releaseplan
+        (Teil der Projektplanung)<br />
+      </li>
+      <li>In der Planung sollten parallele Entwicklungspfade
+        möglichst vermieden werden!<br />
+      </li>
+      <li>Jede Auslieferung wird durch eine Releasenummer
+        gekennzeichnet.<br />
+      </li>
+      <li>Releasenummer ≠ Versionsnummer des
+        Repositories!      </li>
+      <li>Release x.y.z
+        <ul>
+          <li>Hauptrelease (x)</li>
+          <li>Wartungsrelease (y)</li>
+          <li>Patches (z)</li>
+        </ul>
+      </li>
+    </ul>
   </li>
-  <li>Was ist im Gegensatz zur Releasenummer eine<br>
-  </li>
-  <li>Versionsnummer?<br>
-  </li>
-  <li>Wozu dienen Tags?<br>
-  </li>
-  <li>Was ist ein Trunk?<br>
+  <li><strong>SVN</strong></li>
+  <li><strong>Was sind
+    die Ziele des Konfigurationsmanagements?</strong></li>
+  <li><strong>Welche Konfigurationselemente kennen Sie?</strong></li>
+  <li><strong>Was sind keine Konfigurationselemente?<br>
+  </strong></li>
+  <li><strong>Was leistet ein Repository?<br>
+  </strong></li>
+  <li><strong>Wie setzt sich eine Releasenummer zusammen?<br>
+  </strong></li>
+  <li><strong>Was ist im Gegensatz zur Releasenummer eine<br>
+  </strong></li>
+  <li><strong>Versionsnummer?<br>
+  </strong></li>
+  <li><strong>Wozu dienen Tags?<br>
+  </strong></li>
+  <li><strong>Was ist ein Trunk?</strong><br>
   </li>
 </ul>
 <h1>Normen</h1>
@@ -412,9 +485,37 @@ kann in neuen Projekten wieder verwendet werden.
   <li><strong>CMM
     (Capability Maturity Model)</strong>
     <ul>
+      <li>ist ein Reifegradmodell zur Beurteilung der Qualität (&quot;Reife&quot;) des Softwareprozesses (Softwareentwicklung, Wartung, Konfiguration etc.) von Organisationen sowie zur Bestimmung der Maßnahmen zur Verbesserung desselben.</li>
       <li>Integration hilft Software-Unternehmen bei der Verbesserung der<br />
         eigenen Prozesse</li>
-      <li></li>
+      <li>Bei CMM wird die Qualität mit einer von <strong>fünf Stufen</strong> bewertet, wobei die Qualität mit jeder Stufe steigt. Jeder Stufe sind spezielle Key Process Areas zugeordnet, die wiederum Ziele enthalten und beispielhafte Aktivitäten, die diese Ziele zu erreichen sind[1]. Die Stufen sind:<br />
+        <ol>
+          <li> Initial<br />
+            Dies ist der Grundzustand, den jede Organisation erreicht, auch ohne dass ein Prozess für die Softwareentwicklung definiert und umgesetzt wird.<br />
+            Kosten, Zeiten und Qualität sind nicht vorhersehbar.<br />
+            Es sind keine Key Process Areas (KPA) definiert.<br />
+            </li>
+          <li> Repeatable (bei CMMI Managed)<br />
+            Ein grundlegender Prozess existiert. Die Planung neuer Projekte erfolgt anhand der Erfahrungen mit vergangenen Projekten.<br />
+            Zeiten sind einigermaßen kontrollierbar. Kosten und Qualität unterliegen starken Schwankungen.<br />
+            Key Process Areas (KPA): Requirements management, software project planning, software project tracking and oversight, software subcontractor management, software quality assurance, Software configuration management.<br />
+            </li>
+          <li> Defined<br />
+            In der Organisation ist ein typischer Software-Entwicklungs- und -wartungsprozess eingeführt und dokumentiert (Standard-Software-Prozess).<br />
+            Eine spezielle Organisationseinheit ist für die Umsetzung verantwortlich.<br />
+            Kosten und Zeiten sind hier einigermaßen zuverlässig bewertbar. Qualität ist immer noch Schwankungen ausgesetzt.<br />
+            KPA: Organizational process focus, organizational process definition, training program, interated software management, software product engineering, intergroup coordination, peer reviews.<br />
+            </li>
+          <li> Managed (bei CMMI Quantitatively Managed)<br />
+            Sowohl für das Produkt als auch für den Prozess werden quantitative Ziele vorgegeben, ihre Erreichung gemessen und überwacht.<br />
+            Zeiten, Kosten und Qualität sind zuverlässig kontrollierbar.<br />
+            KPA: Quantitative process management, software quality management.<br />
+            </li>
+          <li> Optimizing<br />
+            Die gesamte Organisation konzentriert sich auf das Finden von Schwächen und die weitere Verbesserung des Prozesses.<br />
+            KPA: Defect prevention, technology change management, process change management.</li>
+        </ol>
+      </li>
     </ul>
   </li>
   <li><strong>Analytische Ma&szlig;nahmen</strong>
@@ -454,7 +555,7 @@ kann in neuen Projekten wieder verwendet werden.
           </li>
           <li class="blue">Schreibtischtest<br />
             </li>
-          <li>(blau = manuelle Verfahren)</li>
+          <li class="blue">(blau = manuelle Verfahren)</li>
         </ul>
       </li>
     </ul>
