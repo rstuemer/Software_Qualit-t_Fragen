@@ -309,43 +309,48 @@
   <li>Dokumentation des KM:<br>
     KM-Plan nach IEEE-828-1998 nach [Popp 2008]<br>
   </li>
-  <li>Einleitung<br>
+  <li><strong>Einleitung</strong><br>
     Ziele des Plans und wichtigste Begriffe<br>
   </li>
-  <li>Management<br>
+  <li><strong>Management</strong><br>
     wer ist für welche KM-Aktivit&auml;ten verantwortlich, Einbindung in<br>
     andere Organisationseinheiten<br>
   </li>
-  <li>Aktivit&auml;ten<br>
+  <li><strong>Aktivit&auml;ten</strong><br>
     zentrale Aufgaben und Verfahren des KM<br>
   </li>
-  <li>Zeitplan<br>
+  <li><strong>Zeitplan</strong><br>
     legt die zeitliche Abfolge der KM-Aktivit&auml;ten fest<br>
   </li>
-  <li>Ressourcen<br>
+  <li><strong>Ressourcen</strong><br>
     Bedarf an Werkzeugen und Personal<br>
   </li>
-  <li>Pflege<br>
+  <li><strong>Pflege</strong><br>
     wie kann der Plan w&auml;hrend eines laufenden Projektes ge&auml;ndert<br>
-    werden, um auf ge&auml;nderte Anforderungen zu reagieren.</li>
+  werden, um auf ge&auml;nderte Anforderungen zu reagieren.</li>
+  <li>ist Handbuch als KM-Plan eingeschr&auml;nkt auf:
+    <ul>
+      <li>Aktivit&auml;ten</li>
+      <li>Ressourcen<br>
+      </li>
+    </ul>
+  </li>
+  <li>enth&auml;lt:<br>
+    <ul>
+      <li>Namenkonventionen<br>
+      </li>
+      <li>Richtlinien zur Codeformatierung<br>
+      </li>
+      <li>Installationsanleitungen etc.<br>
+      </li>
+      <li>Beschreibung der Konfigurationselemente etc.<br>
+      </li>
+    </ul>
+  </li>
+  <li>erleichtert die Einarbeitung neuer Teammitglieder<br>
+  </li>
+  <li>kann in neuen Projekten wieder verwendet werden.</li>
 </ul>
-ist Handbuch als KM-Plan eingeschr&auml;nkt auf:<br>
-<li>Aktivit&auml;ten</li>
-</li>
-<li>Ressourcen<br>
-  enth&auml;lt:<br>
-</li>
-<li>Namenkonventionen<br>
-  </li>
-<li>Richtlinien zur Codeformatierung<br>
-  </li>
-<li>Installationsanleitungen etc.<br>
-  </li>
-<li>Beschreibung der Konfigurationselemente etc.<br>
-  </li>
-<li>erleichtert die Einarbeitung neuer Teammitglieder<br>
-  </li>
-<li>kann in neuen Projekten wieder verwendet werden.</li>
 <ul>
   <li><strong>Projektstruktur</strong>
     <ul>
@@ -394,14 +399,14 @@ ist Handbuch als KM-Plan eingeschr&auml;nkt auf:<br>
         <ul>
           <li>das Wiederherstellen eines alten Standes der<br />
             Datei<br />
-            </li>
+          </li>
           <li>das Wiederherstellen irrtümlich gelöschter Datei<br />
-            </li>
+          </li>
           <li>den Vergleich zweier Versionen einer Datei<br />
-            </li>
+          </li>
           <li>die parallele Arbeit an zwei unterschiedlichen<br />
             Version der selben Datei<br />
-            </li>
+          </li>
         </ul>
       </li>
       <li>Um die Versionen einer Datei eindeutig zu<br />
@@ -432,25 +437,25 @@ ist Handbuch als KM-Plan eingeschr&auml;nkt auf:<br>
       <li>Einrichten des Repositories<br />
         <ul>
           <li>Erstellen eines Repositories<br />
-            </li>
+          </li>
           <li>Vergabe der Zugriffsrechte<br />
-            </li>
+          </li>
           <li>Anlegen der Struktur im Repository<br />
-            </li>
+          </li>
         </ul>
       </li>
       <li>Arbeiten mit dem Repository<br />
         <ul>
           <li>Add (neue Dateien hinzufügen)<br />
-            </li>
+          </li>
           <li>Edit<br />
-            </li>
+          </li>
           <li>Update<br />
-            </li>
+          </li>
           <li>Commit<br />
-            </li>
+          </li>
           <li>Sperren<br />
-            </li>
+          </li>
         </ul>
       </li>
       <li>Arbeiten mit der Versionshistorie<br />
@@ -458,9 +463,9 @@ ist Handbuch als KM-Plan eingeschr&auml;nkt auf:<br>
       <li>Umgang mit Konflikten<br />
         <ul>
           <li>Div<br />
-            </li>
+          </li>
           <li>merge<br />
-            </li>
+          </li>
         </ul>
       </li>
       <li>Trunk, Tagging und Branching</li>
@@ -469,7 +474,7 @@ ist Handbuch als KM-Plan eingeschr&auml;nkt auf:<br>
   <li><strong>Wie kann nun ein Releaseplan vom Repository<br />
     unterstützt werden?<br />
   </strong></li>
-  <li><strong>Welche Versionsnummer gehört zu welcher Releasenummer?</strong>
+  <li><strong>Welche Versionsnummer gehört zu welcher Releasenummer?(Was ist im Gegensatz zur Releasenummer eine Versionsnummer?)</strong>
     <ul>
       <li> </li>
     </ul>
@@ -498,24 +503,74 @@ ist Handbuch als KM-Plan eingeschr&auml;nkt auf:<br>
   </li>
   <li><strong>Was sind
     die Ziele des Konfigurationsmanagements?</strong></li>
-  <li><strong>Welche Konfigurationselemente kennen Sie?</strong></li>
-  <li><strong>Was sind keine Konfigurationselemente?</strong><strong><br>
-  </strong></li>
+  <li><strong>Welche Konfigurationselemente kennen Sie?</strong>
+    <ul>
+      <li>IEEE definiert Konfigurationselemente</li>
+      <li>Werkzeuge, z. B. Entwicklungsumgebung, Compiler etc.<br />
+      </li>
+      <li>Bibliotheken und Frameworks<br />
+      </li>
+      <li>Bestimmte generierte Artfakte, 
+        z. B. JavaDoc<br />
+      </li>
+      <li>Quelltext<br />
+      </li>
+      <li>Anforderungsdokumente<br />
+      </li>
+      <li>Architektur- und<br />
+      </li>
+      <li>Designdokumente<br />
+      </li>
+      <li>Konfigurationsmanagement-<br />
+      </li>
+      <li>Handbuch<br />
+      </li>
+      <li>Schnittstellenverträge</li>
+      <li>Testspezifikation und Testdaten<br />
+      </li>
+      <li>Build-Skripte<br />
+      </li>
+      <li>Meta- und Konfigurationsdaten<br />
+      </li>
+      <li>Benutzerdokumentation<br />
+      </li>
+      <li>Installationsanleitung<br />
+      </li>
+      <li>Release-Notes<br />
+      </li>
+      <li>Gründe für den Ausschluss von Elementen ist ihr<br />
+        Umfang.</li>
+    </ul>
+  </li>
+  <li><strong>Was sind keine Konfigurationselemente?</strong>
+    <ul>
+      <li>Protokolle von Meetings<br />
+      </li>
+      <li>Binäre Auslieferungsdateien<br />
+      </li>
+      <li>Generierte Dateien, insbesondere die kompilierten Quelltexte<br />
+        (Ausnahmen sind möglich)<br />
+      </li>
+      <li>Projektpläne<br />
+      </li>
+      <li>Liste offener Punkte<br />
+      </li>
+      <li>Risikolisten, etc.<strong><br>
+      </strong></li>
+    </ul>
+  </li>
   <li><strong>Wie setzt sich eine Releasenummer zusammen?</strong>
     <ul>
       <li>Release x.y.z 
         <ul>
           <li>Hauptrelease (x)</li>
           <li>Wartungsrelease (y)</li>
-          <li>Patches (z)
-            <strong><br>
-          </strong></li>
+          <li>Patches (z)<br>
+  </strong></li>
         </ul>
       </li>
     </ul>
   </li>
-  <li><strong>Was ist im Gegensatz zur Releasenummer eine Versionsnummer?</strong><br>
-  </strong></li>
   <li><strong>Wozu dienen Tags?</strong>
     <ul>
       <li>Die Versionsnummern der Repositories sind schlecht<br />
