@@ -2,6 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>- no title specified</title>
+<style type="text/css">
+<!--
+.blue {
+	color: #00F;
+}
+-->
+</style>
 </head>
 <body style="margin: 2cm; direction: ltr; max-width: 20.999cm;">
 <h1>Rambow 1</h1>
@@ -410,10 +417,117 @@ kann in neuen Projekten wieder verwendet werden.
       <li></li>
     </ul>
   </li>
-  <li><strong>Analytische Ma&szlig;nahmen</strong></li>
-  <li><strong>Inspektion</strong></li>
-  <li><strong>Fragen
-    Pr&uuml;fen Sie sich selbst </strong></li>
+  <li><strong>Analytische Ma&szlig;nahmen</strong>
+    <ul>
+      <li><strong>Analysierende Verfahren</strong> sammeln gezielt
+        Informationen über den
+        Prüfling mit analytischen
+        Mitteln, d. h. unter Verzicht        auf die dynamische
+        Ausführung des Prüflings
+      mit konkreten Eingaben.
+        <ul>
+          <li>Statische Analyse<br />
+          </li>
+          <li>Animation<br />
+          </li>
+          <li class="blue">Programmverifikation<br />
+          </li>
+          <li class="blue">Review<br />
+          </li>
+          <li class="blue">Inspektion<br />
+          </li>
+          <li class="blue">Walkthrough<br />
+          </li>
+          <li class="blue">Durchsprache<br />
+            </li>
+          <li class="blue">Audit</li>
+        </ul>
+      </li>
+      <li><strong>Testende Verfahren</strong> führen den Prüfling mit
+        Eingaben aus.
+        <ul>
+          <li>dynamischer Test<br />
+          </li>
+          <li>Symbolischer Test<br />
+          </li>
+          <li>Simulation<br />
+          </li>
+          <li class="blue">Schreibtischtest<br />
+            </li>
+          <li>(blau = manuelle Verfahren)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Inspektion</strong>
+    <ul>
+      <li>Festgelegte Eingangs- und Ausgangskriterien<br />
+      </li>
+      <li>Definierte Inspektionsphasen<br />
+      </li>
+      <li>Geschulte Teilnehmer mit festgelegten, verteilten Rollen<br />
+      </li>
+      <li>Sammlung und Analyse von Inspektionsdaten einschließlich<br />
+      </li>
+      <li>Rückkopplung auf den Inspektionsprozess<br />
+      </li>
+      <li>Explizite Dokumentation der erkannten Fehler<br />
+      </li>
+      <li>Vorgaben für die Vorbereitungsraten und die<br />
+      </li>
+      <li>Inspektionsgeschwindigkeit<br />
+        </li>
+      <li>Zielvorgaben für Ergebnisse</li>
+      <li><strong>Ablauf einer Inspektion (I)</strong>
+        <ol>
+          <li><strong> Eine Inspektion wird beantragt</strong><br />
+            Der Autor eines Produkts oder Teilprodukts löst die<br />
+            Inspektion aus.<br />
+            </li>
+          <li> <strong>Moderator auswählen</strong><br />
+            Der Moderator ist für die Organisation und Durchführung<br />
+            verantwortlich.<br />
+            </li>
+          <li><strong> Eingangskriterien prüfen</strong><br />
+            Der Moderator prüft, ob die Eingangskriterien für eine<br />
+            Inspektion erfüllt sind. (Zu viele kleine Fehler =&gt; zurück zur<br />
+            Korrektur an den Autor.)<br />
+            </li>
+          <li> <strong>Planung der Inspektion</strong><br />
+            Der Moderator plant die Inspektion.</li>
+          <li><strong>Einführungssitzung (optional)</strong><br />
+            Ziel ist es , dem Inspektionsteam notwendige Informationen<br />
+            zu vermitteln und die zu erledigende Aufgabe zu erläutern.<br />
+          </li>
+          <li> <strong>Individuelle Vorbereitung und Prüfung</strong><br />
+            Jedes Mitglied des Inspektionsteams bereitet sich individuell<br />
+            auf die Inspektionssitzung vor.<br />
+          </li>
+          <li> <strong>Inspektionssitzung</strong><br />
+            Ziele:<br />
+            <ul>
+              <li>Protokollieren aller potentiellen Defekte, die während der<br />
+                individuellen Überprüfung identifizierte wurden<br />
+                </li>
+              <li> Identifizieren zusätzlicher Defekte während der<br />
+                Inspektionssitzung<br />
+                </li>
+              <li> Protokollieren von anderen Verbesserungsvorschlägen<br />
+                und Fragen an den Autor.</li>
+            </ul>
+          </li>
+          <li><strong>Überarbeitung</strong><br />
+            Der Autor überarbeitet das Prüfobjekt.<br />
+          </li>
+          <li><strong> Nachprüfung (follow-up)</strong><br />
+            Der Moderator prüft die Sorgfalt und Vollständigkeit der<br />
+            Überarbeitung, aber nicht die Korrektheit.<br />
+          </li>
+          <li> <strong>Freigabe</strong></li>
+        </ol>
+      </li>
+    </ul>
+  </li>
 </ul>
 <h1>Metriken</h1>
 <ul>
@@ -665,7 +779,7 @@ kann in neuen Projekten wieder verwendet werden.
       <li>Response For a Class (RFC)</li>
       <li>Lack of COhesion in Methods (LCOM)
         <ul>
-          <li>Weitere OO-MAsse
+          <li>Weitere OO-Masse
             <ul>
               <li>MHF Method Hiding Factor</li>
               <li>AHF Attribute Hiding Factor</li>
