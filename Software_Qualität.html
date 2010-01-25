@@ -1,1350 +1,1688 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>- no title specified</title>
-<style type="text/css">
-<!--
-.blue {
-	color: #00F;
-}
-.red {
-	color: #F00;
-}
--->
-</style>
-</head>
-<body style="margin: 2cm; direction: ltr; max-width: 20.999cm;">
-<fieldset style="border:">
-  <legend><strong>legende</strong></legend>
- <span class="red">rot</span> = unbewantwortet oder schlecht<br />
- <s> durchgestrichen</s> = frage ausreichend beantwortet
-</fieldset>
-<h1>Rambow</h1>
-<ul>
-  <li><strong>!!!!abkuerzungen !!!!</strong>
-<ul>
-      <li>KISS
-        <ul>
-          <li>Keep it simple stupid<br />
-          </li>
-        </ul>
-      </li>
-      <li>DRY
-        <ul>
-          <li>Don‘t repeat yourself!<br />
-          </li>
-        </ul>
-      </li>
-      <li> Don't Live with Broken Windows
-        <ul>
-          <li>Wenn du schlechten, unlesbaren, ungetesteten Code findest mach ihn
-            besser!<br />
-          </li>
-        </ul>
-      </li>
-      <li> Leuchtspur Munition
-        <ul>
-          <li>Verwende Prototypen um die Intention des Kunden herauszufinden<br />
-          </li>
-        </ul>
-      </li>
-      <li> Crash Early<br />
-        <ul>
-          <li>Ein Programm bei Fehlern lieber kontrolliert beenden, als in einen unkontrollierbaren zustand bringen</li>
-        </ul>
-      </li>
-      <li> Find Bugs Once
-        <ul>
-          <li>Once a human tester finds a bug, it should be the last time a human tester finds that bug. Automatic tests should check for it from then on.<br />
-          </li>
-        </ul>
-      </li>
-      <li> Keep it shy
-        <ul>
-          <li>The best code is very shy. Like a four-year old hiding behind a mother’s skirt, code shouldn’t reveal too much of itself and shouldn’t be too nosy into others affairs.</li>
-        </ul>
-      </li>
-      <li>So remember to &quot;keep it DRY, keep it shy and tell the other guy&quot;</li>
-      <li>open closed principle
-  <ul>
-    <li> (&quot;Offen-Geschlossen Prinzip&quot;, kurz OCP) ist ein Prinzip beim Objektorientierten Entwurf von Software. Es besch&auml;ftigt sich mit der Erweiterbarkeit von bestehender Software.<br />
-      Im allgemeinen wird das OCP beschrieben durch:<br />
-      Software-Einheiten sollten offen f&uuml;r Erweiterungen, aber geschlossen f&uuml;r Modifikationen sein.<br />
-      Mit Software-Einheiten sind hier Module, Klassen, Methoden etc. gemeint. Eine Erweiterung in diesem Sinne ver&auml;ndert das vorhandene Verhalten der Einheit nicht, vielmehr erweitert es die Einheit nur zus&auml;tzliche Funktionen oder Daten. Eine Modifikation hingegen, w&uuml;rde das bisherige Verhalten der Einheit &auml;ndern.<br />
-      </li>
-  </ul>
-        <br />
-      </li>
-    </ul>
-  </li>
-  <li><strong class="red">graphiken anschauen (hudson testen)</strong>
+  <head>
+    <title>
+      - no title specified
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css" media="screen">
+/*<![CDATA[*/
+    .blue {
+      color: #00F;
+    }
+    .red {
+      color: #F00;
+    }
+    /*]]>*/
+    </style>
+  </head>
+  <body style="margin: 2cm; direction: ltr; max-width: 20.999cm;">
+    <fieldset style="border:">
+      <legend><strong>legende</strong></legend> <span class="red">rot</span> = unbewantwortet oder schlecht<br />
+      <strike>durchgestrichen</strike> = frage ausreichend beantwortet
+    </fieldset>
+    <h1>
+      Rambow
+    </h1>
     <ul>
-      <li><img src="aufbau_cis.png" ></li>
-    </ul>
-  </li>
-  <li><strong class="red">automatisierung (was sollte man automatisieren (wie weit))</strong><br />
-  </li>
-  <li><strong>Unit-Tests</strong>
-    <ul>
-      <li>Sicherung der vorhandenen Funktionalit&auml;t<br />
-      </li>
-      <li> Der Wunsch nach isolierten Testf&auml;llen führt<br />
-        zu besserer Modularisierung der SW<br />
+      <li>
+        <strong>!!!!abkuerzungen !!!!</strong>
         <ul>
-          <li> man denkt in Units, also in funktional<br />
-            zusammengeh&ouml;rigen Code-Einheiten<br />
-          </li>
-        </ul>
-      </li>
-      <li> Tests spezifizieren die Funktionsweise von<br />
-        Programmteilen, Methoden<br />
-      </li>
-      <li> Software ohne Tests ist Legacy Code!<br />
-        und somit unwartbar</li>
-      <li>Verbreitetsten dynamischen, funktionalen<br />
-        Testverfahren.<br />
-      </li>
-      <li>Units sind die kleinsten sinnvoll zu testenden<br />
-        Teile eines Softwaresystems<br />
-      </li>
-      <li> Meist sind es Methoden in OO<br />
-      </li>
-      <li> Um sinnvoll zu Testen sollten mehrere Tests<br />
-        pro Methode geschrieben werden<br />
-      </li>
-      <li>Wenn etwas nicht testbar erscheint, liegt es<br />
-        oft an schlechter Programmstruktur oder zu<br />
-      wenig Wissen, um das Testen als solches.</li>
-      <li>Units werden in Isolation getestet<br />
-        <ul>
-          <li>Keine Datenbankzugriffe<br />
-          </li>
-          <li> Kein Aufruf von Methoden anderer Klassen oder<br />
-            Framework-Methdoden<br />
-          </li>
-          <li> Keine Netzwerk-Services<br />
-          </li>
-        </ul>
-      </li>
-      <li> Dadurch wird erreicht, das ein Fehler in einem<br />
-        nur sehr kleinen Programmteil auftreten kann<br />
-      </li>
-      <li> Beim Testen einer Methode sollte eine hohe<br />
-        Abdeckung das Ziel sein</li>
-    </ul>
-  </li>
-  <li><a href="http://martinfowler.com/articles/continuousIntegration.html"><strong>continious integration,</strong></a>
-    <ul>
-      <li>Continuous Integration is a software development practice where<br />
-        members of a team integrate their work frequently, usually each<br />
-        person integrates at least daily - leading to multiple integrations<br />
-        per day. Each integration is verified by an automated build<br />
-      (including test) to detect integration errors as quickly as possible.</li>
-      <li>Continous Integration bedeutet für uns<br />
-        <ul>
-          <li> Benutzung des VCS und st&auml;nige Updates des<br />
-            Codes der Anderen<br />
-          </li>
-          <li> Der PushButton/ant-triggered-Build, der letzten<br />
-            Vorlesungen muss nun automatisch und<br />
-            kontinuierlich ausgeführt werden soll.<br />
-          </li>
-        </ul>
-      </li>
-      <li> Dadurch werden Integrationsprobleme, wie<br />
-        Kompilierfehler (fehlende Klassen, Methoden)<br />
-        und fehlschlagende Tests rechtzeitig entdeckt</li>
-      <li>Vorgehensweise, bei der kleine lokal<br />
-        funktionsf&auml;hige Code&auml;nderungen h&auml;ufig<br />
-        zusammengeführt werden<br />
-      </li>
-      <li> Dabei kann man davon ausgehen, das diese<br />
-        &auml;nderungen eine Granularit&auml;t besitzen, die<br />
-        es erm&ouml;glicht Fehler im Gesamtsystem<br />
-        schnell zu identifizieren<br />
-      </li>
-      <li> Ziel ist es st&auml;ndig ein funktionsf&auml;higes<br />
-        Gesamtsystem zu haben, das nur nur kurz<br />
-        hinter der Funktionsf&auml;higkeit der Entwicklerversion<br />
-      liegt</li>
-      <li>Für ein erfolgreiches CI muss t&auml;glich<br />
-        mindestens einmal pro Entwickler Code ins<br />
-        Repository übertragen werden<br />
-      </li>
-      <li> Je h&auml;ufiger dies geschieht desto einfacher ist<br />
-        es einen Konflikt zu identifizieren<br />
-      </li>
-      <li> Um dies zu erreichen müssen die<br />
-        Arbeitspakete aufgeteilt werden, so das sich<br />
-        nach einigen Stunden etwas sinnvolles<br />
-      einstellen l&auml;sst.</li>
-    </ul>
-  </li>
-  <li><strong>automatisierte tests!!!!</strong>
-    <ul>
-      <li><strong>Push-Button-Tests</strong>
-        <ul>
-          <li>Testprogramm führt immer den gleichen Test<br />
-            durch<br />
-          </li>
-          <li>Wesentlich schneller als das Eingeben von<br />
-            Testdaten per Hand<br />
-          </li>
-          <li> Reproduzierbare Ergebnisse<br />
-          </li>
-          <li> Einfacher zu starten, prognostizierte<br />
-            h&auml;ufigere Ausführung<br />
-          </li>
-          <li> Andere Entwickler k&ouml;nnen diesen Test<br />
-            ebenso ausführen, dient auch der<br />
-          Dokumentation des Moduls</li>
-        </ul>
-      </li>
-      <li><strong>Automatisierte Tests</strong>
-        <ul>
-          <li>M&ouml;glich wenn Push-Button-Tests vorliegen<br />
-          </li>
-          <li> Lokal gibt es Systeme wie Autotest, die bei<br />
-            &auml;nderungen am Code, den Test automatisch<br />
-            ausführen<br />
-          </li>
-          <li> Besser und auch bei Einsatz von Autotest<br />
-          </li>
-          <li> Zentrale Codeverwaltung (Versionierungssystem)<br />
-          </li>
-          <li> Zentraler Test/CI - Server der beim CheckIn alle<br />
-            Tests durchführt<br />
-          </li>
-          <li> Continous Integration Server, eine Komponente der<br />
-            konstruktiven QS wird sp&auml;ter noch weiter ausgeführt<br />
-          5</li>
-        </ul>
-      </li>
-      <li><strong>Vorteile der Automatisierung</strong>
-<ul>
-          <li>St&auml;ndige Testausführung<br />
+          <li>KISS
             <ul>
-              <li>Basierend auf Events, nicht (nur) manuell<br />
+              <li>Keep it simple stupid<br />
               </li>
             </ul>
           </li>
-          <li> Test-Frameworks<br />
+          <li>DRY
             <ul>
-              <li>Strukturieren und organisieren Tests<br />
-              </li>
-              <li> Scripting, m&ouml;glich um komplexere Testf&auml;lle zu<br />
-                entwickeln<br />
-              </li>
-              <li> Testserver (zentral) und Autotest (lokal)<br />
+              <li>Don‘t repeat yourself!<br />
               </li>
             </ul>
           </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-<h1>Themenliste
-  f&uuml;r Klausur Gabriele
-  Schmidt</h1>
-<p>kopie aus pdf:</p>
-<p>Themenliste für Klausur<br />
-  Gabriele Schmidt,<br />
-  • <s>Definition Qualit&auml;t<br />
-  o Was ist Quality im allgemeinen?<br />
-  o Software Qualit&auml;t?</s><br />
-  o Wer bestimmt die Software Qualit&auml;t?<br />
-  o <s>Wie wirkt sich fehlende Software-Qualit&auml;t aus?</s><br />
-  o <s>Wo geht Qualit&auml;t verloren?<br />
-  o Welche Qualit&auml;tsmassnahmen gibt es?</s><br />
-  Warum ist Qualit&auml;t wichtig?<br />
-  • Qualit&auml;tsmanagement<br />
-  o Aufgaben eine Qualit&auml;tsbeauftragten<br />
-  <s>o Qualit&auml;tsmassnahmen (s. o.)<br />
-  o Qualit&auml;tsmerkmale<br />
-  Was sind Qualit&auml;tsmerkmale?<br />
-  Was sind Qualit&auml;tskriterien?<br />
-  Was sind Qualit&auml;tsziele?<br />
-  Was sind Qualit&auml;tsindikatoren bzw. Metriken?<br />
-  Welche Qualit&auml;tsmassnahmen kennen Sie?</s><br />
-  Worin unterscheiden sich die Qualit&auml;tsmassnahmen?<br />
-  • <s>Konfigurationsmanagement<br />
-  o Vorbereitung<br />
-  o Konfigurationselemente<br />
-  o KM-Handbuch<br />
-  o Projektstruktur<br />
-  o Repository<br />
-  o Versionierung<br />
-  o Releasemanagement<br />
-  o SVN<br />
-  o Was sind die Ziele des Konfigurationsmanagements?<br />
-  Welche Konfigurationselemente kennen Sie?<br />
-  Was sind keine Konfigurationselemente?<br />
-  Was leistet ein Repository?</s><br />
-    <s>Wie setzt sich eine Releasenummer zusammen?  </s><br />
-  Was ist im Gegensatz zur Releasenummer eine Versionsnummer?<br />
-  Wozu dienen Tags?<br />
-  <s>Was ist ein Trunk?</s><br />
-  Was ist ein Branch?<br />
-  • <s>Normen<br />
-  o ISO 9001<br />
-  o CMM (Capability Maturity Model)<br />
-  • Analytische Massnahmen<br />
-  o Inspektion<br />
-  o Fragen Prüfen Sie sich selbst<br />
-  • Metriken<br />
-  o Koh&auml;sion, Kopplung<br />
-  o Lines of Code (LOC),<br />
-  o Function Point<br />
-  o Zyklomatische Komplexit&auml;t</s><br />
-  o <s>Healsted</s><br />
-  o <s>Objekt-orientierte Metriken</s><br />
-  o <s>Goal Question Metric (GQM)<br />
-  oWas sind Metriken?<br />
-  Welche Prozessmetriken kennen Sie?<br />
-  Welche Produktmetriken kennen Sie?<br />
-  Was ist LOC? Welche Kritikpunkte kenne Sie an<br />
-  LOC?<br />
-  Was sind FP? Wie funktioniert FPA?<br />
-  Wie funktioniert die Zykomatische Komplexit&auml;t?<br />
-  Welche OO-Metriken kennen Sie?<br />
-  Wie Funktioniert GQM?</s></p>
-<ul>
-  <li>
-    <h2><strong>Was
-      ist Qualitaet im allgemeinen?</strong></h2>
-  </li>
-</ul>
-<p >Qualit&auml;t
-  ist die Gesamtheit von Eigenschaften und Merkmalen
-  eines Produkts oder einer T&auml;tigkeit, die sich auf deren
-  Eignung zur Erf&uuml;llung gegebener Erfordernisse bezieht.</p>
-<ul>
-  <li>
-    <h2><strong>Software Qualit&auml;t?</strong></h2>
-  </li>
-</ul>
-<p >Software-Qualit&auml;t
-ist die Gesamtheit der Merkmale und 
-Merkmalswerte
-eines Software-Produkts, die sich auf dessen Eignung
-beziehen, festgelegte oder vorausgesetzte Erfordernisse
-zu erf&uuml;llen.</p>
-<p ><span class="T17"></p>
-<ul>
-  <li>
-    <h2 class="red"><strong>Wer bestimmt die Software Qualit&auml;t?</strong></h2>
-    <ul>
-      <li>Qualit&auml;tsbeauftragter<br />
-      </li>
-      <li>Wunschprofil nach [Schneider 2008]<br />
-        <ul>
-          <li>Am wichtigsten<br />
-            </li>
-          <li>Informatik-Hintergrund<br />
-            </li>
-          <li>Kommunikationsf&auml;higkeit<br />
-            </li>
-          <li>Eigeninitiative<br />
-            </li>
-          <li>Pragmatische Einstellung<br />
-            </li>
-          <li>Durchsetzungs- und Konfliktf&auml;higkeit </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-<p >&nbsp;</p>
-<h2 style="font-weight: normal;"><strong>Wie wirkt sich fehlende
-  Software-Qualit&auml;t aus?</strong></h2>
-<ul>
-  <li>In vielen
-    kleinen, individuellen und ganz unspektakul&auml;ren
-    Katastrophen:</li>
-  <li>Produkt muss
-    nachgebessert werden und wird immer teurer</li>
-  <li>Kunde ist
-    unzufrieden</li>
-  <li>Kunde kauft
-    nicht</li>
-  <li>Kunde geht
-    zur Konkurrenz</li>
-</ul>
-<h2 class="red">Wo geht Qualit&auml;t verloren?</h2> 
-</p>
-<div >
-  <div style="height: 10.313cm; width: 16.999cm;" id="Grafik1" class="fr1">
-    <p><img alt="" src="./Software_Qualita%CC%88t.png" height="451"
- width="743"></p>
-  </div>
-</div>
-<h2>Welche
-  Qualit&auml;tsma&szlig;nahmen gibt es?</h2>
-<ul>
-  <li>planerische-administrative<br>
-    ! z. B.
-    Qualit&auml;tsmanagement</li>
-  <li>konstruktive<br>
-    ! z. B.
-    Prozessmodelle, Entwurfsmuster</li>
-  <li>analytische<br>
-    ! z. B.
-    Testen</li>
-  <li>psychologisch-orientierte<br>
-    ! z. B.
-    Einstellung und Grunds&auml;tze der Firma zur</li>
-</ul>
-<h1>Software-Qualit&auml;t
-  (Qualit&auml;tspolitik)</h1>
-<p class="P16">Konstruktive
-  Qualit&auml;tsma&szlig;nahmen:</p>
-<ul>
-  <li>Konfigurationsmanagement</li>
-  <li>Build-Prozess</li>
-  <li>TDD</li>
-  <li>Analytische
-    Qualit&auml;tsma&szlig;nahmen:</li>
-  <li>Inspektion</li>
-  <li>Metriken</li>
-  <li>Testen (TDD)</li>
-</ul>
-<h2 class="red">Warum ist
-  Qualit&auml;t wichtig?</h2>
-<ul>
-  <li>siehe: Wie wirkt sich fehlende
-    Software-Qualit&auml;t aus?</li>
-</ul>
-<h2>Qualit&auml;tsmanagement</h2>
-<strong>Aufgaben eine Qualit&auml;tsbeauftragten</h2>
-</strong>
-<ul>
-  <li>ein Qualit&auml;tsmanagementsystem (= Organisationssystem) f&uuml;r die Einrichtung aufzubauen bzw. aufrechtzuerhalten und</li>
-  <li>interne Audits durchzuf&uuml;hren, um die Wirksamkeit des Organisationssystems zu &uuml;berpr&uuml;fen.</li>
-  <li>Mitarbeiter anzuleiten und Gruppenarbeitstechniken und Probleml&ouml;setechniken anzuwenden,</li>
-  <li>auf Kollegen und Vorgesetzte zuzugehen und Hinweise bez&uuml;glich des QMSystems (Organisationssystem) zu geben oder einzuholen,</li>
-  <li>fach- und bereichs&uuml;bergreifende L&ouml;sungen f&uuml;r die Organisation im Team mit anderen zu entwickeln.</li>
-  <li>Herausgabe, Aktualisierung und Verteilung des Qualit&auml;tsmanagement-Handbuchs sowie F&uuml;hren einer Verteilerliste,</li>
-  <li>Entgegennahme und Pr&uuml;fung von &auml;nderungs- oder Erg&auml;nzungsw&uuml;nschen zum Qualit&auml;tsmanagement-Handbuch,</li>
-  <li>Freigabe und Verteilung der mitgeltenden Unterlagen nach &uuml;berpr&uuml;fung auf Konformit&auml;t innerhalb des Qualit&auml;tsmanagement-Systems,</li>
-  <li>Durchf&uuml;hrung von Qualit&auml;tsaudits und Berichterstattung an die Gesch&auml;ftsf&uuml;hrung,</li>
-  <li>Mitwirkung bei der &uuml;berwachung aller Prozesse,</li>
-  <li>st&auml;ndige Sammlung von Daten zur &uuml;berwachung der Wirksamkeit der Quali t&auml;tspolitik und der Qualit&auml;tsziele, auch um Managementbewertungen durch die Gesch&auml;ftsf&uuml;hrung vorzubereiten,</li>
-  <li>Vereinbarung von Probleml&ouml;sungen mit dem jeweils Prozessverantwortlichen und &uuml;berwachung der Realisierung,</li>
-  <li>Analyse interner und externer Beanstandungen/Reklamationen, Koordination von Korrektur- und Vorbeugemassnahmen und &uuml;berwachung ihrer Wirksamkeit,</li>
-  <li>Motivation der Mitarbeiter und permanente Vorantreibung des internen Qualit&auml;tsverbesserungsprozesses, </li>
-  <li>&uuml;berwachung der Lenkung aller Dokumente und Daten,</li>
-  <li>Ausarbeitung und Veranlassung von Vorbeugemassnahmen gegen m&ouml;gliche Fehler.</li>
-</ul>
-<h2>Was sind
-  Qualit&auml;tsmerkmale?</h2>
-<ul>
-  <li>Funktionalit&auml;t</li>
-  <li>Zuverl&auml;ssigkeit</li>
-  <li>Benutzbarkeit</li>
-  <li>Effizienz</li>
-  <li>&Auml;nderbarkeit</li>
-  <li>&Uuml;bertragbarkeit</li>
-</ul>
-<h2>Was sind
-  Qualit&auml;tskriterien?</h2>
-<ul>
-  <li>Qualit&auml;tsmerkmale werden in einem weiteren Schritt<br>
-    &nbsp;in Teilmerkmale bzw. Kriterien verfeinert.</li>
-  <li>Kriterien spiegeln oft softwareorientierte<br>
-    Charakteristika wider</li>
-  <li>w&auml;hrend Qualit&auml;tsmerkmale eher einer<br>
-    benutzerorientierten Sichtweise entsprechen.</li>
-</ul>
-<h2>Was sind
-  Qualit&auml;tsziele?</h2>
-<ul>
-  <li> Ein Qualit&auml;tsziel ist ein
-    angestrebtes Merkmal.</li>
-  <li> Konstruktives Ziel muss es sein, fehlerfreie
-  Software-  &nbsp;&nbsp; Komponenten zu entwickeln.</li>
-  <li>  Analytische Ziel muss es sein, die
-    Fehlerfreiheit einer Software-Komponente nachzuweisen bzw. vorhandene Fehler zu finden.
-  </li>
-</ul>
-  <h2>Was sind
-    Qualit&auml;tsindikatoren bzw. Metriken?</h2>
-<ul>
-    <li>Die einzelnen Kriterien werden durch<span
- style="font-weight: bold;">&nbsp;Qualit&auml;tsindikatoren bzw.
-      Metriken messbar bzw.<span style="font-weight: bold;"> bewertbar
-      gemacht.</li>
-    <li>Indikatoren sind ausgewiesene Eigenschaften eines<br>
-      Software-Produkts, die zu den Qualit&auml;tsmerkmalen in<br>
-      Beziehung gesetzt werden k&ouml;nnen</li>
-    <li>Beispiele:
-      <ul>
-        <li>Pfadl&auml;nge</li>
-        <li>modularer Aufbau</li>
-        <li>Programmstrukturen</li>
-        <li>Kommentare</li>
-      </ul>
-    </li>
-</ul>
-
-<h2>Welche Qualit&auml;tsma&szlig;nahmen kennen Sie?</h2>
-<p ></p>
-<ul>
-  <li>Konstruktive
-    Qualit&auml;tsma&szlig;nahmen sind Methoden, Sprachen, Werkzeuge, Richtlinien,
-    Standards und Checklisten, die daf&uuml;r sorgen, dass das entstehende
-    Produkt bzw. der Erstellungsprozess &agrave; priori bestimmte
-    Eigenschaften besitzt.<br>
-    </li>
-  <li>Analytische
-    Qualit&auml;tsma&szlig;nahmen sind diagnostische Ma&szlig;nahmen, d. h. sie
-    bringen in das Produkt oder den Entwicklungsprozess per se keine Qualit&auml;t.</li>
-  <li>Durch analytische Ma&szlig;nahmen wird das
-    existierende Qualit&auml;tsniveau gemessen.<br>
-    </li>
-  <li>Soziale und psychologische
-    Qualit&auml;tsma&szlig;nahmen werden oft vernachl&auml;ssigt, obwohl sie zu den
-    wichtigsten Ma&szlig;nahmengeh&ouml;ren.</li>
-</ul>
-<p >Technische Aspekte werden notorisch &uuml;berbewertet,
-  obwohl der Mensch der
-  Schl&uuml;ssel zum Erfolg ist (Tom DeMarco und auch aus QM-Sicht!):</p>
-<p >Alle Mitarbeiter m&uuml;ssen ein
-  Qualit&auml;tsbewu&szlig;tsein entwickeln (k&ouml;nnen), das
-  den Produktionsprozess hinzu einer optimalen Qualit&auml;t
-  ver&auml;ndert.</p>
-<p ></p>
-<h2>Worin unterscheiden sich die Qualit&auml;tsma&szlig;nahmen?</h2>
-<p ><span style="font-weight: bold;">Konstruktive vs.
-  analytische Ma&szlig;nahmen<br>
-</p>
-<ul>
-  <li>&nbsp;&nbsp;&nbsp; Konstruktive und analytische Ma&szlig;nahmen
-    sind von<br>
-    &nbsp; &nbsp; einander abh&auml;ngig.</li>
-  <li>&nbsp;&nbsp;&nbsp; Fehlende oder geringe konstruktive
-    Ma&szlig;nahmen<br>
-    &nbsp; &nbsp; erfordern in der Regel viele und aufwendige<br>
-    &nbsp; &nbsp; analytische Ma&szlig;nahmen.</li>
-  <li>&nbsp;&nbsp;&nbsp; Generell gilt, dass eine vorausschauende,<br>
-    &nbsp; &nbsp;&nbsp;konstruktive Qualit&auml;tslenkung viele analytische<br>
-    &nbsp; &nbsp; Ma&szlig;nahmen erspart.</li>
-</ul>
-<p >&nbsp;</p>
-<h1><strong>Konfigurationsmanagement</strong></h1>
-<h2>Vorbereitung</h2>
-<ul>
-  <li>F&uuml;r KM sind folgende vorbereitende Schritte notwendig:<br>
-    <ul>
-      <li>Notwendigkeiten eines KM feststellen<br>
-      </li>
-      <li>Management &uuml;berzeugen<br>
-      </li>
-      <li>Konfigurationselemente festlegen<br>
-      </li>
-      <li>Werkzeug ausw&auml;hlen<br>
-      </li>
-      <li>Konfigurationsmanagementplan/-handbuch erstellen<br>
-      </li>
-      <li>Projektstruktur festlegen</li></ul></li>
-</ul>
-<h2>KM-Handbuch </h2>
-<ul>
-  <li>Dokumentation des KM:<br>
-    KM-Plan nach IEEE-828-1998 nach [Popp 2008]<br>
-  </li>
-  <li><strong>Einleitung</strong><br>
-    Ziele des Plans und wichtigste Begriffe<br>
-  </li>
-  <li><strong>Management</strong><br>
-    wer ist f&uuml;r welche KM-Aktivit&auml;ten verantwortlich, Einbindung in<br>
-    andere Organisationseinheiten<br>
-  </li>
-  <li><strong>Aktivit&auml;ten</strong><br>
-    zentrale Aufgaben und Verfahren des KM<br>
-  </li>
-  <li><strong>Zeitplan</strong><br>
-    legt die zeitliche Abfolge der KM-Aktivit&auml;ten fest<br>
-  </li>
-  <li><strong>Ressourcen</strong><br>
-    Bedarf an Werkzeugen und Personal<br>
-  </li>
-  <li><strong>Pflege</strong><br>
-    wie kann der Plan w&auml;hrend eines laufenden Projektes ge&auml;ndert<br>
-  werden, um auf ge&auml;nderte Anforderungen zu reagieren.</li>
-  <li>ist Handbuch als KM-Plan eingeschr&auml;nkt auf:
-    <ul>
-      <li>Aktivit&auml;ten</li>
-      <li>Ressourcen<br>
-      </li>
-    </ul>
-  </li>
-  <li>enth&auml;lt:<br>
-    <ul>
-      <li>Namenkonventionen<br>
-      </li>
-      <li>Richtlinien zur Codeformatierung<br>
-      </li>
-      <li>Installationsanleitungen etc.<br>
-      </li>
-      <li>Beschreibung der Konfigurationselemente etc.<br>
-      </li>
-    </ul>
-  </li>
-  <li>erleichtert die Einarbeitung neuer Teammitglieder<br>
-  </li>
-  <li>kann in neuen Projekten wieder verwendet werden.</li>
-</ul>
-<ul>
-  <li><strong>Projektstruktur</strong>
-    <ul>
-      <li>ist die Hierarchie der Verzeichnisse im Projekt<br />
-      </li>
-      <li>sollte pro Konfigurationselement separater Ast (ein<br />
-        Verzeichnis) enthalten.<br />
-      </li>
-      <li>sollte Conway‘s Law berücksichtigen, z. B. Teilteams<br />
-        Conway‘s Law: Die Struktur eines Projektes<br />
-        entwickelt sich analog der Projektorganisation.<br />
-      </li>
-      <li>sollte die Software-Architektur berücksichtigen<br />
-      </li>
-      <li>sollte technische Einflussfaktoren berücksichtigen, z.<br />
-        B. Branching eines Konfigurationswerkzeuges</li>
-    </ul>
-  </li>
-  <li><strong>Repository</strong>
-    (<strong>Was leistet ein Repository?</strong>)
-  <ul>
-    <li>dient als zentrale Ablage im Projekt<br />
-      ist nach der Projektstruktur aufgebaut<br />
-      </li>
-    <li>speichert die Instanzen der Konfigurationselemente:<br />
-      <ul>
-        <li>Textdateien, z.B. Sourcecode<br />
-          </li>
-        <li>Bin&auml;rdateien, z.B. Word-Dokumente für<br />
-          Dokumentation<br />
-          (eher Probleme bei den Deltas bei &auml;lteren<br />
-          Versionskontrollen (CVS) und beim Vergleichen von<br />
-          Dateien)<br />
-          </li>
-        </ul>
-      </li>
-    <li>gew&auml;hrleistet die Datensicherheit der Instanzen der<br />
-      Konfigurationselemente<br />
-      </li>
-    <li>setzen interne Versionierung ein</li>
-    </ul>
-  </li>
-  <li><strong>Versionierung</strong>
-    <ul>
-      <li>Versionierung erm&ouml;glicht<br />
-        <ul>
-          <li>das Wiederherstellen eines alten Standes der<br />
-            Datei<br />
-          </li>
-          <li>das Wiederherstellen irrtümlich gel&ouml;schter Datei<br />
-          </li>
-          <li>den Vergleich zweier Versionen einer Datei<br />
-          </li>
-          <li>die parallele Arbeit an zwei unterschiedlichen<br />
-            Version der selben Datei<br />
-          </li>
-        </ul>
-      </li>
-      <li>Um die Versionen einer Datei eindeutig zu<br />
-        identifizieren, werden diese vom Repository<br />
-        durchnummeriert (Versionsnummern).</li>
-    </ul>
-  </li>
-  <li><strong>Releasemanagement</strong>
-    <ul>
-      <li>Release<br />
-        Produkt, das an den Endanwender ausgeliefert wird.<br />
-      </li>
-      <li>Die Auslieferungen werden geplant =&gt; Releaseplan
-        (Teil der Projektplanung)<br />
-      </li>
-      <li>In der Planung sollten parallele Entwicklungspfade
-        m&ouml;glichst vermieden werden!<br />
-      </li>
-      <li>Jede Auslieferung wird durch eine Releasenummer
-        gekennzeichnet.<br />
-      </li>
-      <li>Releasenummer != Versionsnummer des
-        Repositories!       </li>
-    </ul>
-  </li>
-  <li><strong>SVN</strong>
-    <ul>
-      <li>Einrichten des Repositories<br />
-        <ul>
-          <li>Erstellen eines Repositories<br />
-          </li>
-          <li>Vergabe der Zugriffsrechte<br />
-          </li>
-          <li>Anlegen der Struktur im Repository<br />
-          </li>
-        </ul>
-      </li>
-      <li>Arbeiten mit dem Repository<br />
-        <ul>
-          <li>Add (neue Dateien hinzufügen)<br />
-          </li>
-          <li>Edit<br />
-          </li>
-          <li>Update<br />
-          </li>
-          <li>Commit<br />
-          </li>
-          <li>Sperren<br />
-          </li>
-        </ul>
-      </li>
-      <li>Arbeiten mit der Versionshistorie<br />
-      </li>
-      <li>Umgang mit Konflikten<br />
-        <ul>
-          <li>Div<br />
-          </li>
-          <li>merge<br />
-          </li>
-        </ul>
-      </li>
-      <li>Trunk, Tagging und Branching</li>
-    </ul>
-  </li>
-  <li><span class="red"><strong>Wie kann nun ein Releaseplan vom Repository<br />
-    unterstützt werden?</strong></span><strong><br />
-  </strong></li>
-  <li><strong class="red">Welche Versionsnummer geh&ouml;rt zu welcher Releasenummer? (Was ist im Gegensatz zur Releasenummer eine Versionsnummer?)</strong>
-    <ul>
-      <li>Jede Auslieferung wird durch eine Releasenummer<br />
-      gekennzeichnet.</li>
-      <li>Releasenummer ≠ Versionsnummer des<br />
-      Repositories!</li>
-      <li>Die Versionsnummern der Repositories sind schlecht<br />
-        zu merken, daher bieten die Repositories Tags<br />
-      (Bezeichner)</li>
-    </ul>
-  </li>
-  <li><span class="red"><strong>Warum soll (nicht) parallel gearbeitet werden?</strong></span><strong><br />
-  </strong></li>
-  <li><strong>Wie kann parallel gearbeitet werden?</strong>
-    <ul>
-      <li>branches</li>
-    </ul>
-  </li>
-  <li><strong>Was ist ein Entwicklungspfad?</strong>
-    <ul>
-      <li>Bei einem linearer Entwicklungspfad k&ouml;nnen w&auml;hrend der<br />
-        Vorbereitungsphase durch den Code-Freeze eventuell einige<br />
-        Teammitglieder nicht arbeiten.<br />
-      </li>
-      <li>Um parallel arbeiten zu k&ouml;nnen, verzeigt man die Entwicklungspfade<br />
-        in so genannte Branches.<br />
-      </li>
-      <li>Der Hauptentwicklungspfad wird auch Trunk genannt.<br />
-      </li>
-      <li>Am Ende einer Baseline werden Branch und Trunk wieder<br />
-        zusammengeführt.</li>
-    </ul>
-  </li>
-  <li><strong>Was sind
-    die Ziele des Konfigurationsmanagements?</strong>
-    <ul>
-      <li>Ziel des KM ist es, den Grad der Erf&uuml;llung physischer und funktionaler Anforderungen an eine Konfigurationseinheit zu dokumentieren und diesbez&uuml;glich volle Transparenz herzustellen. Diese soll zudem dazu f&uuml;hren, dass jeder an einer Konfigurationseinheit Interessierte die richtige und zutreffende Dokumentation verwendet.</li>
-    </ul>
-  </li>
-  <li><strong>Welche Konfigurationselemente kennen Sie?</strong>
-    <ul>
-      <li>IEEE definiert Konfigurationselemente</li>
-      <li>Werkzeuge, z. B. Entwicklungsumgebung, Compiler etc.<br />
-      </li>
-      <li>Bibliotheken und Frameworks<br />
-      </li>
-      <li>Bestimmte generierte Artfakte, 
-        z. B. JavaDoc<br />
-      </li>
-      <li>Quelltext<br />
-      </li>
-      <li>Anforderungsdokumente<br />
-      </li>
-      <li>Architektur- und<br />
-      </li>
-      <li>Designdokumente<br />
-      </li>
-      <li>Konfigurationsmanagement-<br />
-      </li>
-      <li>Handbuch<br />
-      </li>
-      <li>Schnittstellenvertr&auml;ge</li>
-      <li>Testspezifikation und Testdaten<br />
-      </li>
-      <li>Build-Skripte<br />
-      </li>
-      <li>Meta- und Konfigurationsdaten<br />
-      </li>
-      <li>Benutzerdokumentation<br />
-      </li>
-      <li>Installationsanleitung<br />
-      </li>
-      <li>Release-Notes<br />
-      </li>
-      <li>Gründe für den Ausschluss von Elementen ist ihr<br />
-        Umfang.</li>
-    </ul>
-  </li>
-  <li><strong>Was sind keine Konfigurationselemente?</strong>
-    <ul>
-      <li>Protokolle von Meetings<br />
-      </li>
-      <li>Bin&auml;re Auslieferungsdateien<br />
-      </li>
-      <li>Generierte Dateien, insbesondere die kompilierten Quelltexte<br />
-        (Ausnahmen sind m&ouml;glich)<br />
-      </li>
-      <li>Projektpl&auml;ne<br />
-      </li>
-      <li>Liste offener Punkte<br />
-      </li>
-      <li>Risikolisten, etc.<strong><br>
-      </strong></li>
-    </ul>
-  </li>
-  <li><strong>Wie setzt sich eine Releasenummer zusammen?</strong>
-    <ul>
-      <li>Release x.y.z 
-        <ul>
-          <li>Hauptrelease (x)</li>
-          <li>Wartungsrelease (y)</li>
-          <li>Patches (z)<br>
-  </strong></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Wozu dienen Tags?</strong>
-    <ul>
-      <li>Die Versionsnummern der Repositories sind schlecht<br />
-        zu merken, daher bieten die Repositories Tags<br />
-        (Bezeichner)<br />
-      </li>
-      <li>Ein Tag markiert die zu einem bestimmten Zeitpunkt<br />
-        g&uuml;ltige Version aller Dateien im Repository mit einer<br />
-        frei w&auml;hlbaren Bezeichnung.<br />
-      </li>
-      <li>Tats&auml;chlich werden alle Dateien bei SVN in ein<br />
-        entsprechendes Tag-Verzeichnis unter dem<br />
-        Bezeichner kopiert.<strong><br>
-      </strong></li>
-    </ul>
-  </li>
-  <li><strong>Was ist ein Trunk?</strong>
-    <ul>
-      <li>Oft wird der Hauptentwicklungszweig als Trunk bezeichnet. <br>
-      </li>
-    </ul>
-  </li>
-</ul>
-<h1>Normen</h1>
-<ul>
-  <li><strong>ISO9001</strong>
-    <ul>
-      <li>Leitfaden zur Auswahl und Anwendung</li>
-      <li><em>EN ISO 9001: Acht Grunds&auml;tze des QM:</em>
-        <ol>
-          <li>Kundenorientierung<br />
-          </li>
-          <li> F&uuml;hrung<br />
-          </li>
-          <li> Einbeziehung der Personen<br />
-          </li>
-          <li> Prozessorientierter Ansatz<br />
-          </li>
-          <li>Systemorientierter Managementansatz<br />
-          </li>
-          <li> Kontinuierliche Verbesserung<br />
-          </li>
-          <li> Sachbezogener Entscheidungsfindungsansatz<br />
-          </li>
-          <li> Lieferantenbeziehung zu gegenseitigem Nutzen</li>
-        </ol>
-      </li>
-      <li>Anforderungen von ISO 9001
-        <ol>
-          <li>Festlegung einer Qualit&auml;tspolitik als Grundlage des gesamten<br />
-            QMSystems</li>
-          <li>Definierte Aufbau- und Ablauforganisation mit Regelung von<br />
-            Zust&auml;ndigkeiten, Befugnissen und Schnittstellen</li>
-          <li>Durchf&uuml;hrung von internen Audits</li>
-          <li> Regelung und Durchf&uuml;hrung von Korrekturverfahren</li>
-          <li>Definition und Dokumentation aller wichtigen Prozesse und ihrer<br />
-            Ergebnisse. Da diese Anforderung alle im Rahmen der Norm<br />
-            geforderten Prozesse umfasst, bildet sie eine wichtige Grundlage<br />
-            eines QM-Systems. Aus diesem Grund sollte einer der ersten<br />
-            Schritte bei der Einf&uuml;hrung eines QM-Systems die Einf&uuml;hrung eines<br />
-            Verfahrens f&uuml;r den Erlass verbindlicher Regelungen sein (soweit<br />
-            nicht bereits vorhanden)</li>
-          <li>Integration der obersten F&uuml;hrungsebene in das QM-System</li>
-          <li>Dokumentenlenkung, d.h. kontrollierte Herausgabe, Verteilung,<br />
-            Bekanntmachung und &auml;nderung von verbindlichen Regelung </li>
-        </ol>
-      </li>
-    </ul>
-  </li>
-  <li><strong>CMM
-    (Capability Maturity Model)</strong>
-    <ul>
-      <li>ist ein Reifegradmodell zur Beurteilung der Qualit&auml;t (&quot;Reife&quot;) des Softwareprozesses (Softwareentwicklung, Wartung, Konfiguration etc.) von Organisationen sowie zur Bestimmung der Massnahmen zur Verbesserung desselben.</li>
-      <li>Integration hilft Software-Unternehmen bei der Verbesserung der<br />
-        eigenen Prozesse</li>
-      <li>Bei CMM wird die Qualit&auml;t mit einer von <strong>f&uuml;nf Stufen</strong> bewertet, wobei die Qualit&auml;t mit jeder Stufe steigt. Jeder Stufe sind spezielle Key Process Areas zugeordnet, die wiederum Ziele enthalten und beispielhafte Aktivit&auml;ten, die diese Ziele zu erreichen sind[1]. Die Stufen sind:<br />
-        <ol>
-          <li> Initial<br />
-            Dies ist der Grundzustand, den jede Organisation erreicht, auch ohne dass ein Prozess f&uuml;r die Softwareentwicklung definiert und umgesetzt wird.<br />
-            Kosten, Zeiten und Qualit&auml;t sind nicht vorhersehbar.<br />
-            Es sind keine Key Process Areas (KPA) definiert.<br />
-            </li>
-          <li> Repeatable (bei CMMI Managed)<br />
-            Ein grundlegender Prozess existiert. Die Planung neuer Projekte erfolgt anhand der Erfahrungen mit vergangenen Projekten.<br />
-            Zeiten sind einigermassen kontrollierbar. Kosten und Qualit&auml;t unterliegen starken Schwankungen.<br />
-            Key Process Areas (KPA): Requirements management, software project planning, software project tracking and oversight, software subcontractor management, software quality assurance, Software configuration management.<br />
-            </li>
-          <li> Defined<br />
-            In der Organisation ist ein typischer Software-Entwicklungs- und -wartungsprozess eingef&uuml;hrt und dokumentiert (Standard-Software-Prozess).<br />
-            Eine spezielle Organisationseinheit ist f&uuml;r die Umsetzung verantwortlich.<br />
-            Kosten und Zeiten sind hier einigermassen zuverl&auml;ssig bewertbar. Qualit&auml;t ist immer noch Schwankungen ausgesetzt.<br />
-            KPA: Organizational process focus, organizational process definition, training program, interated software management, software product engineering, intergroup coordination, peer reviews.<br />
-            </li>
-          <li> Managed (bei CMMI Quantitatively Managed)<br />
-            Sowohl f&uuml;r das Produkt als auch f&uuml;r den Prozess werden quantitative Ziele vorgegeben, ihre Erreichung gemessen und &uuml;berwacht.<br />
-            Zeiten, Kosten und Qualit&auml;t sind zuverl&auml;ssig kontrollierbar.<br />
-            KPA: Quantitative process management, software quality management.<br />
-            </li>
-          <li> Optimizing<br />
-            Die gesamte Organisation konzentriert sich auf das Finden von Schw&auml;chen und die weitere Verbesserung des Prozesses.<br />
-            KPA: Defect prevention, technology change management, process change management.</li>
-        </ol>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Analytische Ma&szlig;nahmen</strong>
-    <ul>
-      <li><strong>Analysierende Verfahren</strong> sammeln gezielt
-        Informationen über den
-        Prüfling mit analytischen
-        Mitteln, d. h. unter Verzicht        auf die dynamische
-        Ausführung des Prüflings
-      mit konkreten Eingaben.
-        <ul>
-          <li>Statische Analyse<br />
-          </li>
-          <li>Animation<br />
-          </li>
-          <li class="blue">Programmverifikation<br />
-          </li>
-          <li class="blue">Review<br />
-          </li>
-          <li class="blue">Inspektion<br />
-          </li>
-          <li class="blue">Walkthrough<br />
-          </li>
-          <li class="blue">Durchsprache<br />
-            </li>
-          <li class="blue">Audit</li>
-        </ul>
-      </li>
-      <li><strong>Testende Verfahren</strong> führen den Prüfling mit
-        Eingaben aus.
-        <ul>
-          <li>dynamischer Test<br />
-          </li>
-          <li>Symbolischer Test<br />
-          </li>
-          <li>Simulation<br />
-          </li>
-          <li class="blue">Schreibtischtest<br />
-            </li>
-          <li class="blue">(blau = manuelle Verfahren)</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Inspektion</strong>
-    <ul>
-      <li>Festgelegte Eingangs- und Ausgangskriterien<br />
-      </li>
-      <li>Definierte Inspektionsphasen<br />
-      </li>
-      <li>Geschulte Teilnehmer mit festgelegten, verteilten Rollen<br />
-      </li>
-      <li>Sammlung und Analyse von Inspektionsdaten einschliesslich<br />
-      </li>
-      <li>R&uuml;̈ckkopplung auf den Inspektionsprozess<br />
-      </li>
-      <li>Explizite Dokumentation der erkannten Fehler<br />
-      </li>
-      <li>Vorgaben für die Vorbereitungsraten und die<br />
-      </li>
-      <li>Inspektionsgeschwindigkeit<br />
-        </li>
-      <li>Zielvorgaben für Ergebnisse</li>
-      <li><strong>Ablauf einer Inspektion (I)</strong>
-        <ol>
-          <li><strong> Eine Inspektion wird beantragt</strong><br />
-            Der Autor eines Produkts oder Teilprodukts l&ouml;st die<br />
-            Inspektion aus.<br />
-            </li>
-          <li> <strong>Moderator ausw&auml;hlen</strong><br />
-            Der Moderator ist für die Organisation und Durchführung<br />
-            verantwortlich.<br />
-            </li>
-          <li><strong> Eingangskriterien prüfen</strong><br />
-            Der Moderator pr&uuml;̈ft, ob die Eingangskriterien für eine<br />
-            Inspektion erfüllt sind. (Zu viele kleine Fehler =&gt; zurück zur<br />
-            Korrektur an den Autor.)<br />
-            </li>
-          <li> <strong>Planung der Inspektion</strong><br />
-            Der Moderator plant die Inspektion.</li>
-          <li><strong>Einführungssitzung (optional)</strong><br />
-            Ziel ist es , dem Inspektionsteam notwendige Informationen<br />
-            zu vermitteln und die zu erledigende Aufgabe zu erl&auml;utern.<br />
-          </li>
-          <li> <strong>Individuelle Vorbereitung und Prüfung</strong><br />
-            Jedes Mitglied des Inspektionsteams bereitet sich individuell<br />
-            auf die Inspektionssitzung vor.<br />
-          </li>
-          <li> <strong>Inspektionssitzung</strong><br />
-            Ziele:<br />
+          <li>Don't Live with Broken Windows
             <ul>
-              <li>Protokollieren aller potentiellen Defekte, die w&auml;hrend der<br />
-                individuellen &uuml;berprüfung identifizierte wurden<br />
-                </li>
-              <li> Identifizieren zus&auml;tzlicher Defekte w&auml;hrend der<br />
-                Inspektionssitzung<br />
-                </li>
-              <li> Protokollieren von anderen Verbesserungsvorschl&auml;gen<br />
-                und Fragen an den Autor.</li>
+              <li>Wenn du schlechten, unlesbaren, ungetesteten Code findest mach ihn besser!<br />
+              </li>
             </ul>
           </li>
-          <li><strong>&uuml;berarbeitung</strong><br />
-            Der Autor überarbeitet das Prüfobjekt.<br />
-          </li>
-          <li><strong> Nachprüfung (follow-up)</strong><br />
-            Der Moderator prüft die Sorgfalt und Vollst&auml;ndigkeit der<br />
-            &uuml;berarbeitung, aber nicht die Korrektheit.<br />
-          </li>
-          <li> <strong>Freigabe</strong></li>
-        </ol>
-      </li>
-    </ul>
-  </li>
-</ul>
-<h1>Metriken</h1>
-<ul>
-  <li><strong>Was sind
-    Metriken? </strong>
-    <ul>
-      <li>Metriken sind ein Indikator f&uuml;r Qualit&auml;t. Aber Metriken<br />
-        produzieren keine Qualit&auml;t!</li>
-      <li>Metriken sind eine Hilfe die Software-Qualit&auml;t eines<br />
-        Softwareproduktes zu messen.<br />
-        =&gt; Produktmasse</li>
-      <li>Metriken sind eine Hilfe die Qualit&auml;t eines<br />
-        Entwicklungsprozesse zu messen.<br />
-        =&gt; Prozessmasse</li>
-      <li>Metriken sind eine Hilfe die Qualit&auml;t eines konkreten<br />
-        Projektes zu messen.<br />
-        =&gt; Projektmasse  </li>
-    </ul>
-  </li>
-<li><strong>Objekt-orientierte Metriken</strong>
-  (Produktmetriken f&uuml;r OO)  
-  <ul>
-    <li><strong>Koh&auml;sion</strong>
-      <ul>
-        <li> ist ein Mass, wie eng zwei Funktionen, die eine<br />
-          Komponente ausf&uuml;hrt, mit einander in Relations stehen. </li>
-        <li>In der OO-Programmierung ist es gut Verantwortlichkeiten<br />
-          Klassen auf eine Weise zuzuordnen, die die Koh&auml;sion<br />
-          hoch h&auml;lt. Die Wahrscheinlichkeit der Wiederverwendung<br />
-          w&auml;chst und die Komplexit&auml;t bleibt handhabbar.<br />
-          </li>
-        <li>Die Koh&auml;sion ist ein Mass, wie stark Verantwortlichkeiten<br />
-          einer einzigen Klasse in Zusammenhang stehen und<br />
-          fokussiert sind.<br />
-          </li>
-        <li>Koh&auml;sion sinkt, wenn<br />
-          <ul>
-            <li>Die Verantwortlichkeit (Methoden) einer Klasse wenig<br />
-              gemeinsam haben.<br />
-              </li>
-            <li>Methoden viele verschiedene Aktivit&auml;ten ausf&uuml;hren und<br />
-              oft wechselnde Daten nutzen.</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    <li><strong>Kopplung</strong>
-      <ul>
-        <li>ist ein Mass, wie eng zwei Komponenten mit einander in<br />
-          Relation stehen oder wie stark sie von einander<br />
-          abh&auml;ngen.</li>
-        <li>In der OO-Programmierung ist Kopplung ein Mass, wie<br />
-          stark eine Klasse mit einer anderen Klasse verbunden<br />
-          ist.<br />
-          </li>
-        <li>Kopplung w&auml;chst, wenn zwischen zwei Klassen A und B:<br />
-          <ul>
-            <li>A ein Attribut hat, das auf B referenziert oder vom<br />
-              Typ B ist.<br />
-              </li>
-            <li>A einen Dienst eines Objekts von B aufruft.<br />
-              </li>
-            <li>A eine Methode hat, die B referenziert (durch eine<br />
-              R&uuml;ckgabetyp oder Parameter).<br />
-              </li>
-            <li>A eine Unterklasse von B ist (oder B implementiert).</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-</li>
-  <li><strong>Welche Prozessmetriken kennen Sie?</strong>
-    <ul>
-      <li>COCOMO II
-        <ul>
-          <li>Es unterst&uuml;tzt moderne Software-Engineering-Verfahren,<br />
-            wie iteratives und objektorientiertes Vorgehen</li>
-        </ul>
-      </li>
-      <li>CMMI (Capability Maturity Model Integration)
-        <ul>
-          <li>hilft Software-Unternehmen bei der Verbesserung der<br />
-            eigenen Prozesse</li>
-          <li>ist kein theoretische Modell, sondern stellt<br />
-            Vorgehensweisen zusammen, die sich in der Praxis<br />
-            vieler Unternehmen bew&auml;hrt haben (Best Practises) </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Welche Produktmetriken kennen Sie?</strong>
-    <ul>
-      <li>Zyklomatische Komplexit&auml;t</li>
-      <li>Halstead-Masse
-        <ul>
-          <li>Die Halstead Masse sind z. B. Komplexit&auml;t, Umfang und<br />
-            Aufwand.<br />
-          </li>
-          <li>Sie werden auf der Basis von Source Code<br />
-            gemessen/berechnet.<br />
-          </li>
-          <li>Sie basieren auf theoretischen &uuml;berlegungen, sind jedoch<br />
-            zum Teil mit Erfolg empirisch validiert worden.<br />
-            [Liggesmeyer 2002]<br />
-          </li>
-          <li>Die Masse sind daher nicht - wie McCabes Mass –<br />
-            unmittelbar nachvollziehbar.<br />
-          </li>
-          <li>Viele Qualit&auml;tsbeauftragte sind auch mit der Interpretation<br />
-            unsicher und wenden Halstead kaum noch an (vgl.<br />
-          [Schneider 2007]) </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Was ist LOC? </strong>
-    <ul>
-      <li>Source lines of code (SLOC) is a software metric<br />
-        used to measure the amount of code in a software<br />
-        program.</li>
-      <li> SLOC is typically used to estimate the amount of<br />
-        effort that will be required to develop a program, as<br />
-        well as to estimate productivity or effort once the<br />
-        software is produced.</li>
-    </ul>
-  </li>
-  <li><strong>Welche Kritikpunkte kenne Sie an LOC? </strong>
-    <ul>
-      <li>Mangel an Gesamtg&uuml;ltigkeit<br />
-        Die Programmierphase macht normalerweise 30% bis<br />
-        35% des Gesamtaufwandes aus.<br />
-      </li>
-      <li>Ung&uuml;nstige Auswirkungen auf die Sch&auml;tzung<br />
-        als Konsequenz des Punktes davor.<br />
-      </li>
-      <li>Mangel an Zusammenhang mit der Funktionalit&auml;t<br />
-        ein (erfahrerner) Einwickler kann nur wenige Zeilen<br />
-        programmieren und doch produktiver sein (und mehr<br />
-        Funktionalit&auml;t umsetzen) als ein Entwickler der mehr<br />
-        LOC erstellt.<br />
-      </li>
-      <li>Unterschiede in den Sprachen<br />
-        Im Gegensatz zu Lines of Code bleiben die Function<br />
-        Points konstant.</li>
-      <li>Weit entfernt von OO-Entwicklung<br />
-        LOC hat keine Bedeutung in der OO-Entwicklung, wo<br />
-        alles &uuml;ber Klassen und Objekten behandelt wird. Da das<br />
-        Objekt die wahre Repr&auml;sentation von Daten und<br />
-        Funktionalit&auml;t ist und das auch f&uuml;r Function Point gilt,<br />
-        bleibt FPA das relevantere f&uuml;r objektorientierte<br />
-        Entwicklung.<br />
-      </li>
-      <li>Probleme bei mehreren Sprachen<br />
-        Heutige Software wird h&auml;ufig in mehreren Sprachen        erstellt. </li>
-      <li>Mangel an Z&auml;hlstandards<br />
-        Es gibt keine Standarddefinition, was eine Codezeile ist.
-        <ul>
-          <li> Z&auml;hlen Kommentare?<br />
-          </li>
-          <li>Sind Datendeklaration eingeschlossen?<br />
-          </li>
-          <li>Was passiert, wenn ein Statement &uuml;ber mehrere Zeilen geht?<br />
-          </li>
-          <li>Was passiert, wenn mehrere Befehle in einer Zeile stehen?<br />
-          </li>
-          <li>Z&auml;hlen Klammern?<br />
-          </li>
-        </ul>
-      </li>
-      <li>Obwohl Organisationen wie SEI and IEEE eine Richtlinien in einem<br />
-        Versuch die Z&auml;hlweise zu standardisieren ver&ouml;ffentlicht haben, ist es<br />
-        schwierig diese in die Praxis umzusetzen, insbesondere wenn Jahr<br />
-        f&uuml;r Jahr neue Sprachen vorgestellt werden.<br>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Was sind FP? Wie funktioniert FPA?</strong>
-    <ul>
-      <li>Function-Points werden in der Softwareentwicklung als Basis f&uuml;r Aufwandssch&auml;tzung und Benchmarking herangezogen. Die Function-Point-Analyse allein stellt allerdings kein Verfahren zur Aufwandssch&auml;tzung dar, sondern dient der reinen Gr&ouml;ssenbestimmung von EDV-Anforderungen.</li>
-      <li><strong>Function Point Methode:</strong><em>
-(verbesserungsfaehig, ist nicht die analyse (FPAAAA))        </em>
-<ol>
-          <li>Schritt: Jede Anforderung einer Kategorie zuordnen</li>
-          <li>Schritt: Klassifizierung</li>
-          <li> Schritt: Eintrag in Berechnungsformular</li>
-          <li>Schritt: Bewertung der Einflussfaktoren</li>
-        </ol>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Zyklomatische Komplexit&auml;t</strong>
-    <ul>
-      <li>Es stammt aus der Graphentheorie und dient dazu<br />
-        Zyklen zu finden.</li>
-      <li>Es misst direkt die Anzahl der linear unabh&auml;ngigen<br />
-        Pfade durch den Source Code.</li>
-      <li>Die zyklomatische Komplexit&auml;t wird berechnet, indem<br />
-        ein Graph den Kontrollfluss durchs Programm darstellt.</li>
-      <li>Die Knoten des Graphen entsprechen den Befehlen eines<br />
-        Programms</li>
-      <li>Ein direkte Kante verbindet zwei Knoten, wenn der zweite<br />
-        Befehl direkt nach dem ersten Befehl folgt. </li>
-      <li>Definition<br />
-        M = E - N + P<br />
-        wobei<br />
-        M = Zyklomatische Komplexit&auml;t<br />
-        E = Anzahl der Kanten (E=Edges) des Graphen<br />
-        N = Anzahl der Knoten (N=Nodes) des Graphen<br />
-        P = Anzahl der verbundenen Komponenten<br />
-        (normalerweise P = 2).</li>
-    </ul>
-  </li>
-  <li><strong>Wie funktioniert die Zykomatische Komplexit&auml;t?</strong>  
-    <ul>
-      <li>„ist wahrscheinlich das am weitesten verbreitet Mass<br />
-        in Analyse und Testwerkzeugen.</li>
-    </ul>
-  </li>
-  
-  <ul>
-    <li>stammt aus der Graphentheorie und dient dazu<br />
-    Zyklen zu finden.</li>
-    <li>Es misst direkt die Anzahl der linear unabh&auml;ngigen<br />
-      Pfade durch den Source Code.<br />
-    </li>
-    <li>Die zyklomatische Komplexit&auml;t wird berechnet, indem<br />
-    ein Graph den Kontrollfluss durchs Programm darstellt.</li>
-    <li>Zyklomatische Komplexit&auml;t im Programmcode einer<br />
-      strukturierten Sprache nach [Schneider 2007]<br />
-      Zyklomatische Komplexit&auml;t [auf Codebasis] =<br />
-      Anzahl der Verzeigungen (if)<br />
-      + Anzahl der Schleifen (for, while, repeate usw.)<br />
-      + je: (Anzahl der Zweige -1) (case-, switch-Verzweigungen)<br />
-      + 1<br />
-    (Ein v&ouml;llig leere Programm w&uuml;rde die Metrik 1 ergeben)</li>
-    <li>Dies impliziert, dass ein Modul mit hoher Komplexit&auml;t<br />
-      mehr Testaufwand erfordert als ein Modul mit geringer<br />
-      Komplexit&auml;t, da eine h&ouml;here Komplexit&auml;t mehr Pfade<br />
-      durch den Code anzeigt.<strong><br>
-    </strong></li>
-  </ul>
-  <li><strong>Welche OO-Metriken kennen Sie?</strong>
-    <ul>
-      <li>Weighted Methods per Class (WMC)</li>
-      <li>Depth of the Inheritance Tree (DIT)</li>
-      <li>Number Of Children (NOC)</li>
-      <li>Coupling Between Objects (CBO)</li>
-      <li>Response For a Class (RFC)</li>
-      <li>Lack of COhesion in Methods (LCOM)
-        <ul>
-          <li>Weitere OO-Masse
+          <li>Leuchtspur Munition
             <ul>
-              <li>MHF Method Hiding Factor</li>
-              <li>AHF Attribute Hiding Factor</li>
-              <li>MIF Method Inheritance Factor</li>
-              <li>AIF Attribute Inheritance Factor</li>
-              <li>PF Polymorphism Factor</li>
-              <li>CF Coupling Factor</li>
+              <li>Verwende Prototypen um die Intention des Kunden herauszufinden<br />
+              </li>
+            </ul>
+          </li>
+          <li>Crash Early<br />
+            <ul>
+              <li>Ein Programm bei Fehlern lieber kontrolliert beenden, als in einen unkontrollierbaren zustand bringen
+              </li>
+            </ul>
+          </li>
+          <li>Find Bugs Once
+            <ul>
+              <li>Once a human tester finds a bug, it should be the last time a human tester finds that bug. Automatic tests should check for it from then on.<br />
+              </li>
+            </ul>
+          </li>
+          <li>Keep it shy
+            <ul>
+              <li>The best code is very shy. Like a four-year old hiding behind a mother’s skirt, code shouldn’t reveal too much of itself and shouldn’t be too nosy into others affairs.
+              </li>
+            </ul>
+          </li>
+          <li>So remember to "keep it DRY, keep it shy and tell the other guy"
+          </li>
+          <li>open closed principle
+            <ul>
+              <li>("Offen-Geschlossen Prinzip", kurz OCP) ist ein Prinzip beim Objektorientierten Entwurf von Software. Es beschäftigt sich mit der Erweiterbarkeit von bestehender Software.<br />
+                Im allgemeinen wird das OCP beschrieben durch:<br />
+                Software-Einheiten sollten offen für Erweiterungen, aber geschlossen für Modifikationen sein.<br />
+                Mit Software-Einheiten sind hier Module, Klassen, Methoden etc. gemeint. Eine Erweiterung in diesem Sinne verändert das vorhandene Verhalten der Einheit nicht, vielmehr erweitert es die Einheit nur zusätzliche Funktionen oder Daten. Eine Modifikation hingegen, würde das bisherige Verhalten der Einheit ändern.<br />
+              </li>
+            </ul><br />
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong class="red">graphiken anschauen (hudson testen)</strong>
+        <ul>
+          <li>
+            <img src="aufbau_cis.png" />
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong class="red">automatisierung (was sollte man automatisieren (wie weit))</strong><br />
+      </li>
+      <li>
+        <strong>Unit-Tests</strong>
+        <ul>
+          <li>Sicherung der vorhandenen Funktionalität<br />
+          </li>
+          <li>Der Wunsch nach isolierten Testfällen führt<br />
+            zu besserer Modularisierung der SW<br />
+            <ul>
+              <li>man denkt in Units, also in funktional<br />
+                zusammengehörigen Code-Einheiten<br />
+              </li>
+            </ul>
+          </li>
+          <li>Tests spezifizieren die Funktionsweise von<br />
+            Programmteilen, Methoden<br />
+          </li>
+          <li>Software ohne Tests ist Legacy Code!<br />
+            und somit unwartbar
+          </li>
+          <li>Verbreitetsten dynamischen, funktionalen<br />
+            Testverfahren.<br />
+          </li>
+          <li>Units sind die kleinsten sinnvoll zu testenden<br />
+            Teile eines Softwaresystems<br />
+          </li>
+          <li>Meist sind es Methoden in OO<br />
+          </li>
+          <li>Um sinnvoll zu Testen sollten mehrere Tests<br />
+            pro Methode geschrieben werden<br />
+          </li>
+          <li>Wenn etwas nicht testbar erscheint, liegt es<br />
+            oft an schlechter Programmstruktur oder zu<br />
+            wenig Wissen, um das Testen als solches.
+          </li>
+          <li>Units werden in Isolation getestet<br />
+            <ul>
+              <li>Keine Datenbankzugriffe<br />
+              </li>
+              <li>Kein Aufruf von Methoden anderer Klassen oder<br />
+                Framework-Methdoden<br />
+              </li>
+              <li>Keine Netzwerk-Services<br />
+              </li>
+            </ul>
+          </li>
+          <li>Dadurch wird erreicht, das ein Fehler in einem<br />
+            nur sehr kleinen Programmteil auftreten kann<br />
+          </li>
+          <li>Beim Testen einer Methode sollte eine hohe<br />
+            Abdeckung das Ziel sein
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="http://martinfowler.com/articles/continuousIntegration.html"><strong>continious integration,</strong></a>
+        <ul>
+          <li>Continuous Integration is a software development practice where<br />
+            members of a team integrate their work frequently, usually each<br />
+            person integrates at least daily - leading to multiple integrations<br />
+            per day. Each integration is verified by an automated build<br />
+            (including test) to detect integration errors as quickly as possible.
+          </li>
+          <li>Continous Integration bedeutet für uns<br />
+            <ul>
+              <li>Benutzung des VCS und stänige Updates des<br />
+                Codes der Anderen<br />
+              </li>
+              <li>Der PushButton/ant-triggered-Build, der letzten<br />
+                Vorlesungen muss nun automatisch und<br />
+                kontinuierlich ausgeführt werden soll.<br />
+              </li>
+            </ul>
+          </li>
+          <li>Dadurch werden Integrationsprobleme, wie<br />
+            Kompilierfehler (fehlende Klassen, Methoden)<br />
+            und fehlschlagende Tests rechtzeitig entdeckt
+          </li>
+          <li>Vorgehensweise, bei der kleine lokal<br />
+            funktionsfähige Codeänderungen häufig<br />
+            zusammengeführt werden<br />
+          </li>
+          <li>Dabei kann man davon ausgehen, das diese<br />
+            änderungen eine Granularität besitzen, die<br />
+            es ermöglicht Fehler im Gesamtsystem<br />
+            schnell zu identifizieren<br />
+          </li>
+          <li>Ziel ist es ständig ein funktionsfähiges<br />
+            Gesamtsystem zu haben, das nur nur kurz<br />
+            hinter der Funktionsfähigkeit der Entwicklerversion<br />
+            liegt
+          </li>
+          <li>Für ein erfolgreiches CI muss täglich<br />
+            mindestens einmal pro Entwickler Code ins<br />
+            Repository übertragen werden<br />
+          </li>
+          <li>Je häufiger dies geschieht desto einfacher ist<br />
+            es einen Konflikt zu identifizieren<br />
+          </li>
+          <li>Um dies zu erreichen müssen die<br />
+            Arbeitspakete aufgeteilt werden, so das sich<br />
+            nach einigen Stunden etwas sinnvolles<br />
+            einstellen lässt.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>automatisierte tests!!!!</strong>
+        <ul>
+          <li>
+            <strong>Push-Button-Tests</strong>
+            <ul>
+              <li>Testprogramm führt immer den gleichen Test<br />
+                durch<br />
+              </li>
+              <li>Wesentlich schneller als das Eingeben von<br />
+                Testdaten per Hand<br />
+              </li>
+              <li>Reproduzierbare Ergebnisse<br />
+              </li>
+              <li>Einfacher zu starten, prognostizierte<br />
+                häufigere Ausführung<br />
+              </li>
+              <li>Andere Entwickler können diesen Test<br />
+                ebenso ausführen, dient auch der<br />
+                Dokumentation des Moduls
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Automatisierte Tests</strong>
+            <ul>
+              <li>Möglich wenn Push-Button-Tests vorliegen<br />
+              </li>
+              <li>Lokal gibt es Systeme wie Autotest, die bei<br />
+                änderungen am Code, den Test automatisch<br />
+                ausführen<br />
+              </li>
+              <li>Besser und auch bei Einsatz von Autotest<br />
+              </li>
+              <li>Zentrale Codeverwaltung (Versionierungssystem)<br />
+              </li>
+              <li>Zentraler Test/CI - Server der beim CheckIn alle<br />
+                Tests durchführt<br />
+              </li>
+              <li>Continous Integration Server, eine Komponente der<br />
+                konstruktiven QS wird später noch weiter ausgeführt<br />
+                5
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Vorteile der Automatisierung</strong>
+            <ul>
+              <li>Ständige Testausführung<br />
+                <ul>
+                  <li>Basierend auf Events, nicht (nur) manuell<br />
+                  </li>
+                </ul>
+              </li>
+              <li>Test-Frameworks<br />
+                <ul>
+                  <li>Strukturieren und organisieren Tests<br />
+                  </li>
+                  <li>Scripting, möglich um komplexere Testfälle zu<br />
+                    entwickeln<br />
+                  </li>
+                  <li>Testserver (zentral) und Autotest (lokal)<br />
+                  </li>
+                </ul>
+              </li>
             </ul>
           </li>
         </ul>
       </li>
     </ul>
-  </li>
-  <li><strong>Goal
-    Question Metric (GQM)</strong>
+    <h1>
+      Themenliste für Klausur Gabriele Schmidt
+    </h1>
+    <p>
+      kopie aus pdf:
+    </p>
+    <p>
+      Themenliste für Klausur<br />
+      Gabriele Schmidt,<br />
+      • <s>Definition Qualität<br />
+      o Was ist Quality im allgemeinen?<br />
+      o Software Qualität?</s><br />
+      o Wer bestimmt die Software Qualität?<br />
+      o <s>Wie wirkt sich fehlende Software-Qualität aus?</s><br />
+      o <s>Wo geht Qualität verloren?<br />
+      o Welche Qualitätsmassnahmen gibt es?</s><br />
+      Warum ist Qualität wichtig?<br />
+      • Qualitätsmanagement<br />
+      o Aufgaben eine Qualitätsbeauftragten<br />
+      <s>o Qualitätsmassnahmen (s. o.)<br />
+      o Qualitätsmerkmale<br />
+      Was sind Qualitätsmerkmale?<br />
+      Was sind Qualitätskriterien?<br />
+      Was sind Qualitätsziele?<br />
+      Was sind Qualitätsindikatoren bzw. Metriken?<br />
+      Welche Qualitätsmassnahmen kennen Sie?</s><br />
+      Worin unterscheiden sich die Qualitätsmassnahmen?<br />
+      • <s>Konfigurationsmanagement<br />
+      o Vorbereitung<br />
+      o Konfigurationselemente<br />
+      o KM-Handbuch<br />
+      o Projektstruktur<br />
+      o Repository<br />
+      o Versionierung<br />
+      o Releasemanagement<br />
+      o SVN<br />
+      o Was sind die Ziele des Konfigurationsmanagements?<br />
+      Welche Konfigurationselemente kennen Sie?<br />
+      Was sind keine Konfigurationselemente?<br />
+      Was leistet ein Repository?</s><br />
+      <s>Wie setzt sich eine Releasenummer zusammen?</s><br />
+      Was ist im Gegensatz zur Releasenummer eine Versionsnummer?<br />
+      Wozu dienen Tags?<br />
+      <s>Was ist ein Trunk?</s><br />
+      Was ist ein Branch?<br />
+      • <s>Normen<br />
+      o ISO 9001<br />
+      o CMM (Capability Maturity Model)<br />
+      • Analytische Massnahmen<br />
+      o Inspektion<br />
+      o Fragen Prüfen Sie sich selbst<br />
+      • Metriken<br />
+      o Kohäsion, Kopplung<br />
+      o Lines of Code (LOC),<br />
+      o Function Point<br />
+      o Zyklomatische Komplexität</s><br />
+      o <s>Healsted</s><br />
+      o <s>Objekt-orientierte Metriken</s><br />
+      o <s>Goal Question Metric (GQM)<br />
+      oWas sind Metriken?<br />
+      Welche Prozessmetriken kennen Sie?<br />
+      Welche Produktmetriken kennen Sie?<br />
+      Was ist LOC? Welche Kritikpunkte kenne Sie an<br />
+      LOC?<br />
+      Was sind FP? Wie funktioniert FPA?<br />
+      Wie funktioniert die Zykomatische Komplexität?<br />
+      Welche OO-Metriken kennen Sie?<br />
+      Wie Funktioniert GQM?</s>
+    </p>
     <ul>
-      <li>ist eine systematische Vorgehensweise zur Erstellung spezifischer Qualit&auml;tsmodelle im Bereich der Softwareentwicklung. Diese l&auml;sst sich als Baumstruktur darstellen. Als Wurzel steht das Ziel (Goal), das &uuml;ber die Knoten (Questions) zu den Bl&auml;ttern (Metric) verfeinert wird. Auf diesem Weg werden Fragen und Softwaremasse abgeleitet. Auf dem Weg von den Bl&auml;ttern zur Wurzel werden die gemessenen Werte interpretiert.<br />
-        Geeignete Metriken lassen sich in der Softwaremetrie identifizieren &uuml;ber die Beantwortung der folgenden Fragen:<br />
+      <li>
+        <h2>
+          <strong>Was ist Qualitaet im allgemeinen?</strong>
+        </h2>
+      </li>
+    </ul>
+    <p>
+      Qualität ist die Gesamtheit von Eigenschaften und Merkmalen eines Produkts oder einer Tätigkeit, die sich auf deren Eignung zur Erfüllung gegebener Erfordernisse bezieht.
+    </p>
+    <ul>
+      <li>
+        <h2>
+          <strong>Software Qualität?</strong>
+        </h2>
+      </li>
+    </ul>
+    <p>
+      Software-Qualität ist die Gesamtheit der Merkmale und Merkmalswerte eines Software-Produkts, die sich auf dessen Eignung beziehen, festgelegte oder vorausgesetzte Erfordernisse zu erfüllen.
+    </p>
+    <ul>
+      <li>
+        <h2 class="red">
+          <span class="T17"><strong>Wer bestimmt die Software Qualität?</strong></span>
+        </h2>
         <ul>
-          <li>Welches Ziel soll durch die Messung erreicht werden? (Goal)<br />
+          <li>
+            <span class="T17">Qualitätsbeauftragter<br /></span>
           </li>
-          <li>Was soll gemessen werden bzw. welche Fragen soll die Messung beantworten? (Question)<br />
+          <li>
+            <span class="T17">Wunschprofil nach [Schneider 2008]<br /></span>
+            <ul>
+              <li>
+                <span class="T17">Am wichtigsten<br /></span>
+              </li>
+              <li>
+                <span class="T17">Informatik-Hintergrund<br /></span>
+              </li>
+              <li>
+                <span class="T17">Kommunikationsfähigkeit<br /></span>
+              </li>
+              <li>
+                <span class="T17">Eigeninitiative<br /></span>
+              </li>
+              <li>
+                <span class="T17">Pragmatische Einstellung<br /></span>
+              </li>
+              <li>
+                <span class="T17">Durchsetzungs- und Konfliktfähigkeit</span>
+              </li>
+            </ul>
           </li>
-          <li>Welche Metrik(en) sind in der Lage, die notwendigen Eigenschaften zu beschreiben? (Metric)
-            <strong><br>
-          </strong></li>
         </ul>
       </li>
     </ul>
-  </li>
-  <li><strong>Wie Funktioniert GQM?&nbsp;</strong>
+    <p>
+      <span class="T17">&nbsp;</span>
+    </p>
+    <h2 style="font-weight: normal;">
+      <span class="T17"><strong>Wie wirkt sich fehlende Software-Qualität aus?</strong></span>
+    </h2>
     <ul>
-      <li>GQM ist eine Anleitung, wie man systematisch<br />
-        Kriterien und Metriken bestimmt.
-        <ol>
-          <li> Relevante Charakteristika der Organisation, des<br />
-            Projekts oder Produkts identifizieren, die vermessen<br />
-            werden sollen</li>
-          <li> Messziele identifizieren und eine Messplan konzipieren</li>
-          <li> Festlegen des Datensammel-Verfahrens/der Metriken</li>
-          <li> Daten sammeln/messen, analysiern und interpretieren</li>
-          <li> Eine Post-Mortem-Analyse durchf&uuml;hren und die Daten<br />
-            interpretieren</li>
-          <li>Erfahrungen zusammenfassen. </li>
-        </ol>
-      <li>Besonders schwierig sind Schritte 3 bis 5</li>
-      <li> Anf&auml;nger stellen zu viele Fragen</li>
-      <li> Es sollte das Prinzip der schrittweisen Verfeinerung<br />
-        verfolgt werden</li>
-      <li> GQM ist ein zyklischer Prozess.</li>
+      <li>
+        <span class="T17">In vielen kleinen, individuellen und ganz unspektakulären Katastrophen:</span>
+      </li>
+      <li>
+        <span class="T17">Produkt muss nachgebessert werden und wird immer teurer</span>
+      </li>
+      <li>
+        <span class="T17">Kunde ist unzufrieden</span>
+      </li>
+      <li>
+        <span class="T17">Kunde kauft nicht</span>
+      </li>
+      <li>
+        <span class="T17">Kunde geht zur Konkurrenz</span>
+      </li>
     </ul>
-  </li>
-</ul>
-</body>
+    <h2 class="red">
+      <span class="T17">Wo geht Qualität verloren?</span>
+    </h2>
+    <div>
+      <div style="height: 10.313cm; width: 16.999cm;" id="Grafik1" class="fr1">
+        <p>
+          <span class="T17"><img alt="" src="./Software_Qualita%CC%88t.png" height="451" width="743" /></span>
+        </p>
+      </div>
+    </div>
+    <h2>
+      <span class="T17">Welche Qualitätsmaßnahmen gibt es?</span>
+    </h2>
+    <ul>
+      <li>
+        <span class="T17">planerische-administrative<br />
+        ! z. B. Qualitätsmanagement</span>
+      </li>
+      <li>
+        <span class="T17">konstruktive<br />
+        ! z. B. Prozessmodelle, Entwurfsmuster</span>
+      </li>
+      <li>
+        <span class="T17">analytische<br />
+        ! z. B. Testen</span>
+      </li>
+      <li>
+        <span class="T17">psychologisch-orientierte<br />
+        ! z. B. Einstellung und Grundsätze der Firma zur</span>
+      </li>
+    </ul>
+    <h1>
+      <span class="T17">Software-Qualität (Qualitätspolitik)</span>
+    </h1>
+    <p class="P16">
+      <span class="T17">Konstruktive Qualitätsmaßnahmen:</span>
+    </p>
+    <ul>
+      <li>
+        <span class="T17">Konfigurationsmanagement</span>
+      </li>
+      <li>
+        <span class="T17">Build-Prozess</span>
+      </li>
+      <li>
+        <span class="T17">TDD</span>
+      </li>
+      <li>
+        <span class="T17">Analytische Qualitätsmaßnahmen:</span>
+      </li>
+      <li>
+        <span class="T17">Inspektion</span>
+      </li>
+      <li>
+        <span class="T17">Metriken</span>
+      </li>
+      <li>
+        <span class="T17">Testen (TDD)</span>
+      </li>
+    </ul>
+    <h2 class="red">
+      <span class="T17">Warum ist Qualität wichtig?</span>
+    </h2>
+    <ul>
+      <li>
+        <span class="T17">siehe: Wie wirkt sich fehlende Software-Qualität aus?</span>
+      </li>
+    </ul>
+    <h2>
+      <span class="T17">Qualitätsmanagement</span>
+    </h2>
+    <p>
+      <span class="T17"><strong>Aufgaben eine Qualitätsbeauftragten</strong></span>
+    </p>
+    <ul>
+      <li>
+        <span class="T17">ein Qualitätsmanagementsystem (= Organisationssystem) für die Einrichtung aufzubauen bzw. aufrechtzuerhalten und</span>
+      </li>
+      <li>
+        <span class="T17">interne Audits durchzuführen, um die Wirksamkeit des Organisationssystems zu überprüfen.</span>
+      </li>
+      <li>
+        <span class="T17">Mitarbeiter anzuleiten und Gruppenarbeitstechniken und Problemlösetechniken anzuwenden,</span>
+      </li>
+      <li>
+        <span class="T17">auf Kollegen und Vorgesetzte zuzugehen und Hinweise bezüglich des QMSystems (Organisationssystem) zu geben oder einzuholen,</span>
+      </li>
+      <li>
+        <span class="T17">fach- und bereichsübergreifende Lösungen für die Organisation im Team mit anderen zu entwickeln.</span>
+      </li>
+      <li>
+        <span class="T17">Herausgabe, Aktualisierung und Verteilung des Qualitätsmanagement-Handbuchs sowie Führen einer Verteilerliste,</span>
+      </li>
+      <li>
+        <span class="T17">Entgegennahme und Prüfung von änderungs- oder Ergänzungswünschen zum Qualitätsmanagement-Handbuch,</span>
+      </li>
+      <li>
+        <span class="T17">Freigabe und Verteilung der mitgeltenden Unterlagen nach überprüfung auf Konformität innerhalb des Qualitätsmanagement-Systems,</span>
+      </li>
+      <li>
+        <span class="T17">Durchführung von Qualitätsaudits und Berichterstattung an die Geschäftsführung,</span>
+      </li>
+      <li>
+        <span class="T17">Mitwirkung bei der überwachung aller Prozesse,</span>
+      </li>
+      <li>
+        <span class="T17">ständige Sammlung von Daten zur überwachung der Wirksamkeit der Quali tätspolitik und der Qualitätsziele, auch um Managementbewertungen durch die Geschäftsführung vorzubereiten,</span>
+      </li>
+      <li>
+        <span class="T17">Vereinbarung von Problemlösungen mit dem jeweils Prozessverantwortlichen und überwachung der Realisierung,</span>
+      </li>
+      <li>
+        <span class="T17">Analyse interner und externer Beanstandungen/Reklamationen, Koordination von Korrektur- und Vorbeugemassnahmen und überwachung ihrer Wirksamkeit,</span>
+      </li>
+      <li>
+        <span class="T17">Motivation der Mitarbeiter und permanente Vorantreibung des internen Qualitätsverbesserungsprozesses,</span>
+      </li>
+      <li>
+        <span class="T17">überwachung der Lenkung aller Dokumente und Daten,</span>
+      </li>
+      <li>
+        <span class="T17">Ausarbeitung und Veranlassung von Vorbeugemassnahmen gegen mögliche Fehler.</span>
+      </li>
+    </ul>
+    <h2>
+      <span class="T17">Was sind Qualitätsmerkmale?</span>
+    </h2>
+    <ul>
+      <li>
+        <span class="T17">Funktionalität</span>
+      </li>
+      <li>
+        <span class="T17">Zuverlässigkeit</span>
+      </li>
+      <li>
+        <span class="T17">Benutzbarkeit</span>
+      </li>
+      <li>
+        <span class="T17">Effizienz</span>
+      </li>
+      <li>
+        <span class="T17">Änderbarkeit</span>
+      </li>
+      <li>
+        <span class="T17">Übertragbarkeit</span>
+      </li>
+    </ul>
+    <h2>
+      <span class="T17">Was sind Qualitätskriterien?</span>
+    </h2>
+    <ul>
+      <li>
+        <span class="T17">Qualitätsmerkmale werden in einem weiteren Schritt<br />
+        &nbsp;in Teilmerkmale bzw. Kriterien verfeinert.</span>
+      </li>
+      <li>
+        <span class="T17">Kriterien spiegeln oft softwareorientierte<br />
+        Charakteristika wider</span>
+      </li>
+      <li>
+        <span class="T17">während Qualitätsmerkmale eher einer<br />
+        benutzerorientierten Sichtweise entsprechen.</span>
+      </li>
+    </ul>
+    <h2>
+      <span class="T17">Was sind Qualitätsziele?</span>
+    </h2>
+    <ul>
+      <li>
+        <span class="T17">Ein Qualitätsziel ist ein angestrebtes Merkmal.</span>
+      </li>
+      <li>
+        <span class="T17">Konstruktives Ziel muss es sein, fehlerfreie Software- &nbsp;&nbsp; Komponenten zu entwickeln.</span>
+      </li>
+      <li>
+        <span class="T17">Analytische Ziel muss es sein, die Fehlerfreiheit einer Software-Komponente nachzuweisen bzw. vorhandene Fehler zu finden.</span>
+      </li>
+    </ul>
+    <h2>
+      <span class="T17">Was sind Qualitätsindikatoren bzw. Metriken?</span>
+    </h2>
+    <ul>
+      <li>
+        <span class="T17">Die einzelnen Kriterien werden durch<span style="font-weight: bold;">&nbsp;Qualitätsindikatoren bzw. Metriken messbar bzw. <span style="font-weight: bold;">bewertbar gemacht.</span></span></span>
+      </li>
+      <li>
+        <span class="T17">Indikatoren sind ausgewiesene Eigenschaften eines<br />
+        Software-Produkts, die zu den Qualitätsmerkmalen in<br />
+        Beziehung gesetzt werden können</span>
+      </li>
+      <li>
+        <span class="T17">Beispiele:</span>
+        <ul>
+          <li>
+            <span class="T17">Pfadlänge</span>
+          </li>
+          <li>
+            <span class="T17">modularer Aufbau</span>
+          </li>
+          <li>
+            <span class="T17">Programmstrukturen</span>
+          </li>
+          <li>
+            <span class="T17">Kommentare</span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h2>
+      <span class="T17">Welche Qualitätsmaßnahmen kennen Sie?</span>
+    </h2>
+    <ul>
+      <li>
+        <span class="T17">Konstruktive Qualitätsmaßnahmen sind Methoden, Sprachen, Werkzeuge, Richtlinien, Standards und Checklisten, die dafür sorgen, dass das entstehende Produkt bzw. der Erstellungsprozess à priori bestimmte Eigenschaften besitzt.<br /></span>
+      </li>
+      <li>
+        <span class="T17">Analytische Qualitätsmaßnahmen sind diagnostische Maßnahmen, d. h. sie bringen in das Produkt oder den Entwicklungsprozess per se keine Qualität.</span>
+      </li>
+      <li>
+        <span class="T17">Durch analytische Maßnahmen wird das existierende Qualitätsniveau gemessen.<br /></span>
+      </li>
+      <li>
+        <span class="T17">Soziale und psychologische Qualitätsmaßnahmen werden oft vernachlässigt, obwohl sie zu den wichtigsten Maßnahmengehören.</span>
+      </li>
+    </ul>
+    <p>
+      <span class="T17">Technische Aspekte werden notorisch überbewertet, obwohl der Mensch der Schlüssel zum Erfolg ist (Tom DeMarco und auch aus QM-Sicht!):</span>
+    </p>
+    <p>
+      <span class="T17">Alle Mitarbeiter müssen ein Qualitätsbewußtsein entwickeln (können), das den Produktionsprozess hinzu einer optimalen Qualität verändert.</span>
+    </p>
+    <h2>
+      <span class="T17">Worin unterscheiden sich die Qualitätsmaßnahmen?</span>
+    </h2>
+    <p>
+      <span class="T17"><span style="font-weight: bold;">Konstruktive vs. analytische Maßnahmen<br /></span></span>
+    </p>
+    <ul>
+      <li>
+        <span class="T17">&nbsp;&nbsp;&nbsp; Konstruktive und analytische Maßnahmen sind von<br />
+        &nbsp; &nbsp; einander abhängig.</span>
+      </li>
+      <li>
+        <span class="T17">&nbsp;&nbsp;&nbsp; Fehlende oder geringe konstruktive Maßnahmen<br />
+        &nbsp; &nbsp; erfordern in der Regel viele und aufwendige<br />
+        &nbsp; &nbsp; analytische Maßnahmen.</span>
+      </li>
+      <li>
+        <span class="T17">&nbsp;&nbsp;&nbsp; Generell gilt, dass eine vorausschauende,<br />
+        &nbsp; &nbsp;&nbsp;konstruktive Qualitätslenkung viele analytische<br />
+        &nbsp; &nbsp; Maßnahmen erspart.</span>
+      </li>
+    </ul>
+    <p>
+      <span class="T17">&nbsp;</span>
+    </p>
+    <h1>
+      <span class="T17"><strong>Konfigurationsmanagement</strong></span>
+    </h1>
+    <h2>
+      <span class="T17">Vorbereitung</span>
+    </h2>
+    <ul>
+      <li>
+        <span class="T17">Für KM sind folgende vorbereitende Schritte notwendig:<br /></span>
+        <ul>
+          <li>
+            <span class="T17">Notwendigkeiten eines KM feststellen<br /></span>
+          </li>
+          <li>
+            <span class="T17">Management überzeugen<br /></span>
+          </li>
+          <li>
+            <span class="T17">Konfigurationselemente festlegen<br /></span>
+          </li>
+          <li>
+            <span class="T17">Werkzeug auswählen<br /></span>
+          </li>
+          <li>
+            <span class="T17">Konfigurationsmanagementplan/-handbuch erstellen<br /></span>
+          </li>
+          <li>
+            <span class="T17">Projektstruktur festlegen</span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h2>
+      <span class="T17">KM-Handbuch</span>
+    </h2>
+    <ul>
+      <li>
+        <span class="T17">Dokumentation des KM:<br />
+        KM-Plan nach IEEE-828-1998 nach [Popp 2008]<br /></span>
+      </li>
+      <li>
+        <span class="T17"><strong>Einleitung</strong><br />
+        Ziele des Plans und wichtigste Begriffe<br /></span>
+      </li>
+      <li>
+        <span class="T17"><strong>Management</strong><br />
+        wer ist für welche KM-Aktivitäten verantwortlich, Einbindung in<br />
+        andere Organisationseinheiten<br /></span>
+      </li>
+      <li>
+        <span class="T17"><strong>Aktivitäten</strong><br />
+        zentrale Aufgaben und Verfahren des KM<br /></span>
+      </li>
+      <li>
+        <span class="T17"><strong>Zeitplan</strong><br />
+        legt die zeitliche Abfolge der KM-Aktivitäten fest<br /></span>
+      </li>
+      <li>
+        <span class="T17"><strong>Ressourcen</strong><br />
+        Bedarf an Werkzeugen und Personal<br /></span>
+      </li>
+      <li>
+        <span class="T17"><strong>Pflege</strong><br />
+        wie kann der Plan während eines laufenden Projektes geändert<br />
+        werden, um auf geänderte Anforderungen zu reagieren.</span>
+      </li>
+      <li>
+        <span class="T17">ist Handbuch als KM-Plan eingeschränkt auf:</span>
+        <ul>
+          <li>
+            <span class="T17">Aktivitäten</span>
+          </li>
+          <li>
+            <span class="T17">Ressourcen<br /></span>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span class="T17">enthält:<br /></span>
+        <ul>
+          <li>
+            <span class="T17">Namenkonventionen<br /></span>
+          </li>
+          <li>
+            <span class="T17">Richtlinien zur Codeformatierung<br /></span>
+          </li>
+          <li>
+            <span class="T17">Installationsanleitungen etc.<br /></span>
+          </li>
+          <li>
+            <span class="T17">Beschreibung der Konfigurationselemente etc.<br /></span>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span class="T17">erleichtert die Einarbeitung neuer Teammitglieder<br /></span>
+      </li>
+      <li>
+        <span class="T17">kann in neuen Projekten wieder verwendet werden.</span>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <span class="T17"><strong>Projektstruktur</strong></span>
+        <ul>
+          <li>
+            <span class="T17">ist die Hierarchie der Verzeichnisse im Projekt<br /></span>
+          </li>
+          <li>
+            <span class="T17">sollte pro Konfigurationselement separater Ast (ein<br />
+            Verzeichnis) enthalten.<br /></span>
+          </li>
+          <li>
+            <span class="T17">sollte Conway‘s Law berücksichtigen, z. B. Teilteams<br />
+            Conway‘s Law: Die Struktur eines Projektes<br />
+            entwickelt sich analog der Projektorganisation.<br /></span>
+          </li>
+          <li>
+            <span class="T17">sollte die Software-Architektur berücksichtigen<br /></span>
+          </li>
+          <li>
+            <span class="T17">sollte technische Einflussfaktoren berücksichtigen, z.<br />
+            B. Branching eines Konfigurationswerkzeuges</span>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span class="T17"><strong>Repository</strong> (<strong>Was leistet ein Repository?</strong>)</span>
+        <ul>
+          <li>
+            <span class="T17">dient als zentrale Ablage im Projekt<br />
+            ist nach der Projektstruktur aufgebaut<br /></span>
+          </li>
+          <li>
+            <span class="T17">speichert die Instanzen der Konfigurationselemente:<br /></span>
+            <ul>
+              <li>
+                <span class="T17">Textdateien, z.B. Sourcecode<br /></span>
+              </li>
+              <li>
+                <span class="T17">Binärdateien, z.B. Word-Dokumente für<br />
+                Dokumentation<br />
+                (eher Probleme bei den Deltas bei älteren<br />
+                Versionskontrollen (CVS) und beim Vergleichen von<br />
+                Dateien)<br /></span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="T17">gewährleistet die Datensicherheit der Instanzen der<br />
+            Konfigurationselemente<br /></span>
+          </li>
+          <li>
+            <span class="T17">setzen interne Versionierung ein</span>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span class="T17"><strong>Versionierung</strong></span>
+        <ul>
+          <li>
+            <span class="T17">Versionierung ermöglicht<br /></span>
+            <ul>
+              <li>
+                <span class="T17">das Wiederherstellen eines alten Standes der<br />
+                Datei<br /></span>
+              </li>
+              <li>
+                <span class="T17">das Wiederherstellen irrtümlich gelöschter Datei<br /></span>
+              </li>
+              <li>
+                <span class="T17">den Vergleich zweier Versionen einer Datei<br /></span>
+              </li>
+              <li>
+                <span class="T17">die parallele Arbeit an zwei unterschiedlichen<br />
+                Version der selben Datei<br /></span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="T17">Um die Versionen einer Datei eindeutig zu<br />
+            identifizieren, werden diese vom Repository<br />
+            durchnummeriert (Versionsnummern).</span>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span class="T17"><strong>Releasemanagement</strong></span>
+        <ul>
+          <li>
+            <span class="T17">Release<br />
+            Produkt, das an den Endanwender ausgeliefert wird.<br /></span>
+          </li>
+          <li>
+            <span class="T17">Die Auslieferungen werden geplant =&gt; Releaseplan (Teil der Projektplanung)<br /></span>
+          </li>
+          <li>
+            <span class="T17">In der Planung sollten parallele Entwicklungspfade möglichst vermieden werden!<br /></span>
+          </li>
+          <li>
+            <span class="T17">Jede Auslieferung wird durch eine Releasenummer gekennzeichnet.<br /></span>
+          </li>
+          <li>
+            <span class="T17">Releasenummer != Versionsnummer des Repositories!</span>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span class="T17"><strong>SVN</strong></span>
+        <ul>
+          <li>
+            <span class="T17">Einrichten des Repositories<br /></span>
+            <ul>
+              <li>
+                <span class="T17">Erstellen eines Repositories<br /></span>
+              </li>
+              <li>
+                <span class="T17">Vergabe der Zugriffsrechte<br /></span>
+              </li>
+              <li>
+                <span class="T17">Anlegen der Struktur im Repository<br /></span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="T17">Arbeiten mit dem Repository<br /></span>
+            <ul>
+              <li>
+                <span class="T17">Add (neue Dateien hinzufügen)<br /></span>
+              </li>
+              <li>
+                <span class="T17">Edit<br /></span>
+              </li>
+              <li>
+                <span class="T17">Update<br /></span>
+              </li>
+              <li>
+                <span class="T17">Commit<br /></span>
+              </li>
+              <li>
+                <span class="T17">Sperren<br /></span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="T17">Arbeiten mit der Versionshistorie<br /></span>
+          </li>
+          <li>
+            <span class="T17">Umgang mit Konflikten<br /></span>
+            <ul>
+              <li>
+                <span class="T17">Div<br /></span>
+              </li>
+              <li>
+                <span class="T17">merge<br /></span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="T17">Trunk, Tagging und Branching</span>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span class="T17"><span class="red"><strong>Wie kann nun ein Releaseplan vom Repository<br />
+        unterstützt werden?</strong></span><strong><br /></strong></span>
+      </li>
+      <li>
+        <strong class="red">Welche Versionsnummer gehört zu welcher Releasenummer? (Was ist im Gegensatz zur Releasenummer eine Versionsnummer?)</strong>
+        <ul>
+          <li>Jede Auslieferung wird durch eine Releasenummer<br />
+            gekennzeichnet.
+          </li>
+          <li>Releasenummer ≠ Versionsnummer des<br />
+            Repositories!
+          </li>
+          <li>Die Versionsnummern der Repositories sind schlecht<br />
+            zu merken, daher bieten die Repositories Tags<br />
+            (Bezeichner)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span class="red"><strong>Warum soll (nicht) parallel gearbeitet werden?</strong></span><strong><br /></strong>
+      </li>
+      <li>
+        <strong>Wie kann parallel gearbeitet werden?</strong>
+        <ul>
+          <li>branches
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Was ist ein Entwicklungspfad?</strong>
+        <ul>
+          <li>Bei einem linearer Entwicklungspfad können während der<br />
+            Vorbereitungsphase durch den Code-Freeze eventuell einige<br />
+            Teammitglieder nicht arbeiten.<br />
+          </li>
+          <li>Um parallel arbeiten zu können, verzeigt man die Entwicklungspfade<br />
+            in so genannte Branches.<br />
+          </li>
+          <li>Der Hauptentwicklungspfad wird auch Trunk genannt.<br />
+          </li>
+          <li>Am Ende einer Baseline werden Branch und Trunk wieder<br />
+            zusammengeführt.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Was sind die Ziele des Konfigurationsmanagements?</strong>
+        <ul>
+          <li>Ziel des KM ist es, den Grad der Erfüllung physischer und funktionaler Anforderungen an eine Konfigurationseinheit zu dokumentieren und diesbezüglich volle Transparenz herzustellen. Diese soll zudem dazu führen, dass jeder an einer Konfigurationseinheit Interessierte die richtige und zutreffende Dokumentation verwendet.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Welche Konfigurationselemente kennen Sie?</strong>
+        <ul>
+          <li>IEEE definiert Konfigurationselemente
+          </li>
+          <li>Werkzeuge, z. B. Entwicklungsumgebung, Compiler etc.<br />
+          </li>
+          <li>Bibliotheken und Frameworks<br />
+          </li>
+          <li>Bestimmte generierte Artfakte, z. B. JavaDoc<br />
+          </li>
+          <li>Quelltext<br />
+          </li>
+          <li>Anforderungsdokumente<br />
+          </li>
+          <li>Architektur- und<br />
+          </li>
+          <li>Designdokumente<br />
+          </li>
+          <li>Konfigurationsmanagement-<br />
+          </li>
+          <li>Handbuch<br />
+          </li>
+          <li>Schnittstellenverträge
+          </li>
+          <li>Testspezifikation und Testdaten<br />
+          </li>
+          <li>Build-Skripte<br />
+          </li>
+          <li>Meta- und Konfigurationsdaten<br />
+          </li>
+          <li>Benutzerdokumentation<br />
+          </li>
+          <li>Installationsanleitung<br />
+          </li>
+          <li>Release-Notes<br />
+          </li>
+          <li>Gründe für den Ausschluss von Elementen ist ihr<br />
+            Umfang.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Was sind keine Konfigurationselemente?</strong>
+        <ul>
+          <li>Protokolle von Meetings<br />
+          </li>
+          <li>Binäre Auslieferungsdateien<br />
+          </li>
+          <li>Generierte Dateien, insbesondere die kompilierten Quelltexte<br />
+            (Ausnahmen sind möglich)<br />
+          </li>
+          <li>Projektpläne<br />
+          </li>
+          <li>Liste offener Punkte<br />
+          </li>
+          <li>Risikolisten, etc.<strong><br /></strong>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Wie setzt sich eine Releasenummer zusammen?</strong>
+        <ul>
+          <li>Release x.y.z
+            <ul>
+              <li>Hauptrelease (x)
+              </li>
+              <li>Wartungsrelease (y)
+              </li>
+              <li>Patches (z)<br />
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Wozu dienen Tags?</strong>
+        <ul>
+          <li>Die Versionsnummern der Repositories sind schlecht<br />
+            zu merken, daher bieten die Repositories Tags<br />
+            (Bezeichner)<br />
+          </li>
+          <li>Ein Tag markiert die zu einem bestimmten Zeitpunkt<br />
+            gültige Version aller Dateien im Repository mit einer<br />
+            frei wählbaren Bezeichnung.<br />
+          </li>
+          <li>Tatsächlich werden alle Dateien bei SVN in ein<br />
+            entsprechendes Tag-Verzeichnis unter dem<br />
+            Bezeichner kopiert.<strong><br /></strong>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Was ist ein Trunk?</strong>
+        <ul>
+          <li>Oft wird der Hauptentwicklungszweig als Trunk bezeichnet.<br />
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h1>
+      Normen
+    </h1>
+    <ul>
+      <li>
+        <strong>ISO9001</strong>
+        <ul>
+          <li>Leitfaden zur Auswahl und Anwendung
+          </li>
+          <li>
+            <em>EN ISO 9001: Acht Grundsätze des QM:</em>
+            <ol>
+              <li>Kundenorientierung<br />
+              </li>
+              <li>Führung<br />
+              </li>
+              <li>Einbeziehung der Personen<br />
+              </li>
+              <li>Prozessorientierter Ansatz<br />
+              </li>
+              <li>Systemorientierter Managementansatz<br />
+              </li>
+              <li>Kontinuierliche Verbesserung<br />
+              </li>
+              <li>Sachbezogener Entscheidungsfindungsansatz<br />
+              </li>
+              <li>Lieferantenbeziehung zu gegenseitigem Nutzen
+              </li>
+            </ol>
+          </li>
+          <li>Anforderungen von ISO 9001
+            <ol>
+              <li>Festlegung einer Qualitätspolitik als Grundlage des gesamten<br />
+                QMSystems
+              </li>
+              <li>Definierte Aufbau- und Ablauforganisation mit Regelung von<br />
+                Zuständigkeiten, Befugnissen und Schnittstellen
+              </li>
+              <li>Durchführung von internen Audits
+              </li>
+              <li>Regelung und Durchführung von Korrekturverfahren
+              </li>
+              <li>Definition und Dokumentation aller wichtigen Prozesse und ihrer<br />
+                Ergebnisse. Da diese Anforderung alle im Rahmen der Norm<br />
+                geforderten Prozesse umfasst, bildet sie eine wichtige Grundlage<br />
+                eines QM-Systems. Aus diesem Grund sollte einer der ersten<br />
+                Schritte bei der Einführung eines QM-Systems die Einführung eines<br />
+                Verfahrens für den Erlass verbindlicher Regelungen sein (soweit<br />
+                nicht bereits vorhanden)
+              </li>
+              <li>Integration der obersten Führungsebene in das QM-System
+              </li>
+              <li>Dokumentenlenkung, d.h. kontrollierte Herausgabe, Verteilung,<br />
+                Bekanntmachung und änderung von verbindlichen Regelung
+              </li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>CMM (Capability Maturity Model)</strong>
+        <ul>
+          <li>ist ein Reifegradmodell zur Beurteilung der Qualität ("Reife") des Softwareprozesses (Softwareentwicklung, Wartung, Konfiguration etc.) von Organisationen sowie zur Bestimmung der Massnahmen zur Verbesserung desselben.
+          </li>
+          <li>Integration hilft Software-Unternehmen bei der Verbesserung der<br />
+            eigenen Prozesse
+          </li>
+          <li>Bei CMM wird die Qualität mit einer von <strong>fünf Stufen</strong> bewertet, wobei die Qualität mit jeder Stufe steigt. Jeder Stufe sind spezielle Key Process Areas zugeordnet, die wiederum Ziele enthalten und beispielhafte Aktivitäten, die diese Ziele zu erreichen sind[1]. Die Stufen sind:<br />
+            <ol>
+              <li>Initial<br />
+                Dies ist der Grundzustand, den jede Organisation erreicht, auch ohne dass ein Prozess für die Softwareentwicklung definiert und umgesetzt wird.<br />
+                Kosten, Zeiten und Qualität sind nicht vorhersehbar.<br />
+                Es sind keine Key Process Areas (KPA) definiert.<br />
+              </li>
+              <li>Repeatable (bei CMMI Managed)<br />
+                Ein grundlegender Prozess existiert. Die Planung neuer Projekte erfolgt anhand der Erfahrungen mit vergangenen Projekten.<br />
+                Zeiten sind einigermassen kontrollierbar. Kosten und Qualität unterliegen starken Schwankungen.<br />
+                Key Process Areas (KPA): Requirements management, software project planning, software project tracking and oversight, software subcontractor management, software quality assurance, Software configuration management.<br />
+              </li>
+              <li>Defined<br />
+                In der Organisation ist ein typischer Software-Entwicklungs- und -wartungsprozess eingeführt und dokumentiert (Standard-Software-Prozess).<br />
+                Eine spezielle Organisationseinheit ist für die Umsetzung verantwortlich.<br />
+                Kosten und Zeiten sind hier einigermassen zuverlässig bewertbar. Qualität ist immer noch Schwankungen ausgesetzt.<br />
+                KPA: Organizational process focus, organizational process definition, training program, interated software management, software product engineering, intergroup coordination, peer reviews.<br />
+              </li>
+              <li>Managed (bei CMMI Quantitatively Managed)<br />
+                Sowohl für das Produkt als auch für den Prozess werden quantitative Ziele vorgegeben, ihre Erreichung gemessen und überwacht.<br />
+                Zeiten, Kosten und Qualität sind zuverlässig kontrollierbar.<br />
+                KPA: Quantitative process management, software quality management.<br />
+              </li>
+              <li>Optimizing<br />
+                Die gesamte Organisation konzentriert sich auf das Finden von Schwächen und die weitere Verbesserung des Prozesses.<br />
+                KPA: Defect prevention, technology change management, process change management.
+              </li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Analytische Maßnahmen</strong>
+        <ul>
+          <li>
+            <strong>Analysierende Verfahren</strong> sammeln gezielt Informationen über den Prüfling mit analytischen Mitteln, d. h. unter Verzicht auf die dynamische Ausführung des Prüflings mit konkreten Eingaben.
+            <ul>
+              <li>Statische Analyse<br />
+              </li>
+              <li>Animation<br />
+              </li>
+              <li class="blue">Programmverifikation<br />
+              </li>
+              <li class="blue">Review<br />
+              </li>
+              <li class="blue">Inspektion<br />
+              </li>
+              <li class="blue">Walkthrough<br />
+              </li>
+              <li class="blue">Durchsprache<br />
+              </li>
+              <li class="blue">Audit
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Testende Verfahren</strong> führen den Prüfling mit Eingaben aus.
+            <ul>
+              <li>dynamischer Test<br />
+              </li>
+              <li>Symbolischer Test<br />
+              </li>
+              <li>Simulation<br />
+              </li>
+              <li class="blue">Schreibtischtest<br />
+              </li>
+              <li class="blue">(blau = manuelle Verfahren)
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Inspektion</strong>
+        <ul>
+          <li>Festgelegte Eingangs- und Ausgangskriterien<br />
+          </li>
+          <li>Definierte Inspektionsphasen<br />
+          </li>
+          <li>Geschulte Teilnehmer mit festgelegten, verteilten Rollen<br />
+          </li>
+          <li>Sammlung und Analyse von Inspektionsdaten einschliesslich<br />
+          </li>
+          <li>Rü̈ckkopplung auf den Inspektionsprozess<br />
+          </li>
+          <li>Explizite Dokumentation der erkannten Fehler<br />
+          </li>
+          <li>Vorgaben für die Vorbereitungsraten und die<br />
+          </li>
+          <li>Inspektionsgeschwindigkeit<br />
+          </li>
+          <li>Zielvorgaben für Ergebnisse
+          </li>
+          <li>
+            <strong>Ablauf einer Inspektion (I)</strong>
+            <ol>
+              <li>
+                <strong>Eine Inspektion wird beantragt</strong><br />
+                Der Autor eines Produkts oder Teilprodukts löst die<br />
+                Inspektion aus.<br />
+              </li>
+              <li>
+                <strong>Moderator auswählen</strong><br />
+                Der Moderator ist für die Organisation und Durchführung<br />
+                verantwortlich.<br />
+              </li>
+              <li>
+                <strong>Eingangskriterien prüfen</strong><br />
+                Der Moderator prü̈ft, ob die Eingangskriterien für eine<br />
+                Inspektion erfüllt sind. (Zu viele kleine Fehler =&gt; zurück zur<br />
+                Korrektur an den Autor.)<br />
+              </li>
+              <li>
+                <strong>Planung der Inspektion</strong><br />
+                Der Moderator plant die Inspektion.
+              </li>
+              <li>
+                <strong>Einführungssitzung (optional)</strong><br />
+                Ziel ist es , dem Inspektionsteam notwendige Informationen<br />
+                zu vermitteln und die zu erledigende Aufgabe zu erläutern.<br />
+              </li>
+              <li>
+                <strong>Individuelle Vorbereitung und Prüfung</strong><br />
+                Jedes Mitglied des Inspektionsteams bereitet sich individuell<br />
+                auf die Inspektionssitzung vor.<br />
+              </li>
+              <li>
+                <strong>Inspektionssitzung</strong><br />
+                Ziele:<br />
+                <ul>
+                  <li>Protokollieren aller potentiellen Defekte, die während der<br />
+                    individuellen überprüfung identifizierte wurden<br />
+                  </li>
+                  <li>Identifizieren zusätzlicher Defekte während der<br />
+                    Inspektionssitzung<br />
+                  </li>
+                  <li>Protokollieren von anderen Verbesserungsvorschlägen<br />
+                    und Fragen an den Autor.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>überarbeitung</strong><br />
+                Der Autor überarbeitet das Prüfobjekt.<br />
+              </li>
+              <li>
+                <strong>Nachprüfung (follow-up)</strong><br />
+                Der Moderator prüft die Sorgfalt und Vollständigkeit der<br />
+                überarbeitung, aber nicht die Korrektheit.<br />
+              </li>
+              <li>
+                <strong>Freigabe</strong>
+              </li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h1>
+      Metriken
+    </h1>
+    <ul>
+      <li>
+        <strong>Was sind Metriken?</strong>
+        <ul>
+          <li>Metriken sind ein Indikator für Qualität. Aber Metriken<br />
+            produzieren keine Qualität!
+          </li>
+          <li>Metriken sind eine Hilfe die Software-Qualität eines<br />
+            Softwareproduktes zu messen.<br />
+            =&gt; Produktmasse
+          </li>
+          <li>Metriken sind eine Hilfe die Qualität eines<br />
+            Entwicklungsprozesse zu messen.<br />
+            =&gt; Prozessmasse
+          </li>
+          <li>Metriken sind eine Hilfe die Qualität eines konkreten<br />
+            Projektes zu messen.<br />
+            =&gt; Projektmasse
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Objekt-orientierte Metriken</strong> (Produktmetriken für OO)
+        <ul>
+          <li>
+            <strong>Kohäsion</strong>
+            <ul>
+              <li>ist ein Mass, wie eng zwei Funktionen, die eine<br />
+                Komponente ausführt, mit einander in Relations stehen.
+              </li>
+              <li>In der OO-Programmierung ist es gut Verantwortlichkeiten<br />
+                Klassen auf eine Weise zuzuordnen, die die Kohäsion<br />
+                hoch hält. Die Wahrscheinlichkeit der Wiederverwendung<br />
+                wächst und die Komplexität bleibt handhabbar.<br />
+              </li>
+              <li>Die Kohäsion ist ein Mass, wie stark Verantwortlichkeiten<br />
+                einer einzigen Klasse in Zusammenhang stehen und<br />
+                fokussiert sind.<br />
+              </li>
+              <li>Kohäsion sinkt, wenn<br />
+                <ul>
+                  <li>Die Verantwortlichkeit (Methoden) einer Klasse wenig<br />
+                    gemeinsam haben.<br />
+                  </li>
+                  <li>Methoden viele verschiedene Aktivitäten ausführen und<br />
+                    oft wechselnde Daten nutzen.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Kopplung</strong>
+            <ul>
+              <li>ist ein Mass, wie eng zwei Komponenten mit einander in<br />
+                Relation stehen oder wie stark sie von einander<br />
+                abhängen.
+              </li>
+              <li>In der OO-Programmierung ist Kopplung ein Mass, wie<br />
+                stark eine Klasse mit einer anderen Klasse verbunden<br />
+                ist.<br />
+              </li>
+              <li>Kopplung wächst, wenn zwischen zwei Klassen A und B:<br />
+                <ul>
+                  <li>A ein Attribut hat, das auf B referenziert oder vom<br />
+                    Typ B ist.<br />
+                  </li>
+                  <li>A einen Dienst eines Objekts von B aufruft.<br />
+                  </li>
+                  <li>A eine Methode hat, die B referenziert (durch eine<br />
+                    Rückgabetyp oder Parameter).<br />
+                  </li>
+                  <li>A eine Unterklasse von B ist (oder B implementiert).
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Welche Prozessmetriken kennen Sie?</strong>
+        <ul>
+          <li>COCOMO II
+            <ul>
+              <li>Es unterstützt moderne Software-Engineering-Verfahren,<br />
+                wie iteratives und objektorientiertes Vorgehen
+              </li>
+            </ul>
+          </li>
+          <li>CMMI (Capability Maturity Model Integration)
+            <ul>
+              <li>hilft Software-Unternehmen bei der Verbesserung der<br />
+                eigenen Prozesse
+              </li>
+              <li>ist kein theoretische Modell, sondern stellt<br />
+                Vorgehensweisen zusammen, die sich in der Praxis<br />
+                vieler Unternehmen bewährt haben (Best Practises)
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Welche Produktmetriken kennen Sie?</strong>
+        <ul>
+          <li>Zyklomatische Komplexität
+          </li>
+          <li>Halstead-Masse
+            <ul>
+              <li>Die Halstead Masse sind z. B. Komplexität, Umfang und<br />
+                Aufwand.<br />
+              </li>
+              <li>Sie werden auf der Basis von Source Code<br />
+                gemessen/berechnet.<br />
+              </li>
+              <li>Sie basieren auf theoretischen überlegungen, sind jedoch<br />
+                zum Teil mit Erfolg empirisch validiert worden.<br />
+                [Liggesmeyer 2002]<br />
+              </li>
+              <li>Die Masse sind daher nicht - wie McCabes Mass –<br />
+                unmittelbar nachvollziehbar.<br />
+              </li>
+              <li>Viele Qualitätsbeauftragte sind auch mit der Interpretation<br />
+                unsicher und wenden Halstead kaum noch an (vgl.<br />
+                [Schneider 2007])
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Was ist LOC?</strong>
+        <ul>
+          <li>Source lines of code (SLOC) is a software metric<br />
+            used to measure the amount of code in a software<br />
+            program.
+          </li>
+          <li>SLOC is typically used to estimate the amount of<br />
+            effort that will be required to develop a program, as<br />
+            well as to estimate productivity or effort once the<br />
+            software is produced.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Welche Kritikpunkte kenne Sie an LOC?</strong>
+        <ul>
+          <li>Mangel an Gesamtgültigkeit<br />
+            Die Programmierphase macht normalerweise 30% bis<br />
+            35% des Gesamtaufwandes aus.<br />
+          </li>
+          <li>Ungünstige Auswirkungen auf die Schätzung<br />
+            als Konsequenz des Punktes davor.<br />
+          </li>
+          <li>Mangel an Zusammenhang mit der Funktionalität<br />
+            ein (erfahrerner) Einwickler kann nur wenige Zeilen<br />
+            programmieren und doch produktiver sein (und mehr<br />
+            Funktionalität umsetzen) als ein Entwickler der mehr<br />
+            LOC erstellt.<br />
+          </li>
+          <li>Unterschiede in den Sprachen<br />
+            Im Gegensatz zu Lines of Code bleiben die Function<br />
+            Points konstant.
+          </li>
+          <li>Weit entfernt von OO-Entwicklung<br />
+            LOC hat keine Bedeutung in der OO-Entwicklung, wo<br />
+            alles über Klassen und Objekten behandelt wird. Da das<br />
+            Objekt die wahre Repräsentation von Daten und<br />
+            Funktionalität ist und das auch für Function Point gilt,<br />
+            bleibt FPA das relevantere für objektorientierte<br />
+            Entwicklung.<br />
+          </li>
+          <li>Probleme bei mehreren Sprachen<br />
+            Heutige Software wird häufig in mehreren Sprachen erstellt.
+          </li>
+          <li>Mangel an Zählstandards<br />
+            Es gibt keine Standarddefinition, was eine Codezeile ist.
+            <ul>
+              <li>Zählen Kommentare?<br />
+              </li>
+              <li>Sind Datendeklaration eingeschlossen?<br />
+              </li>
+              <li>Was passiert, wenn ein Statement über mehrere Zeilen geht?<br />
+              </li>
+              <li>Was passiert, wenn mehrere Befehle in einer Zeile stehen?<br />
+              </li>
+              <li>Zählen Klammern?<br />
+              </li>
+            </ul>
+          </li>
+          <li>Obwohl Organisationen wie SEI and IEEE eine Richtlinien in einem<br />
+            Versuch die Zählweise zu standardisieren veröffentlicht haben, ist es<br />
+            schwierig diese in die Praxis umzusetzen, insbesondere wenn Jahr<br />
+            für Jahr neue Sprachen vorgestellt werden.<br />
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Was sind FP? Wie funktioniert FPA?</strong>
+        <ul>
+          <li>Function-Points werden in der Softwareentwicklung als Basis für Aufwandsschätzung und Benchmarking herangezogen. Die Function-Point-Analyse allein stellt allerdings kein Verfahren zur Aufwandsschätzung dar, sondern dient der reinen Grössenbestimmung von EDV-Anforderungen.
+          </li>
+          <li>
+            <strong>Function Point Methode:</strong><em>(verbesserungsfaehig, ist nicht die analyse (FPAAAA))</em>
+            <ol>
+              <li>Schritt: Jede Anforderung einer Kategorie zuordnen
+              </li>
+              <li>Schritt: Klassifizierung
+              </li>
+              <li>Schritt: Eintrag in Berechnungsformular
+              </li>
+              <li>Schritt: Bewertung der Einflussfaktoren
+              </li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Zyklomatische Komplexität</strong>
+        <ul>
+          <li>Es stammt aus der Graphentheorie und dient dazu<br />
+            Zyklen zu finden.
+          </li>
+          <li>Es misst direkt die Anzahl der linear unabhängigen<br />
+            Pfade durch den Source Code.
+          </li>
+          <li>Die zyklomatische Komplexität wird berechnet, indem<br />
+            ein Graph den Kontrollfluss durchs Programm darstellt.
+          </li>
+          <li>Die Knoten des Graphen entsprechen den Befehlen eines<br />
+            Programms
+          </li>
+          <li>Ein direkte Kante verbindet zwei Knoten, wenn der zweite<br />
+            Befehl direkt nach dem ersten Befehl folgt.
+          </li>
+          <li>Definition<br />
+            M = E - N + P<br />
+            wobei<br />
+            M = Zyklomatische Komplexität<br />
+            E = Anzahl der Kanten (E=Edges) des Graphen<br />
+            N = Anzahl der Knoten (N=Nodes) des Graphen<br />
+            P = Anzahl der verbundenen Komponenten<br />
+            (normalerweise P = 2).
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Wie funktioniert die Zykomatische Komplexität?</strong>
+        <ul>
+          <li>„ist wahrscheinlich das am weitesten verbreitet Mass<br />
+            in Analyse und Testwerkzeugen.
+          </li>
+        </ul>
+      </li>
+      <li style="list-style: none">
+        <ul>
+          <li>stammt aus der Graphentheorie und dient dazu<br />
+            Zyklen zu finden.
+          </li>
+          <li>Es misst direkt die Anzahl der linear unabhängigen<br />
+            Pfade durch den Source Code.<br />
+          </li>
+          <li>Die zyklomatische Komplexität wird berechnet, indem<br />
+            ein Graph den Kontrollfluss durchs Programm darstellt.
+          </li>
+          <li>Zyklomatische Komplexität im Programmcode einer<br />
+            strukturierten Sprache nach [Schneider 2007]<br />
+            Zyklomatische Komplexität [auf Codebasis] =<br />
+            Anzahl der Verzeigungen (if)<br />
+            + Anzahl der Schleifen (for, while, repeate usw.)<br />
+            + je: (Anzahl der Zweige -1) (case-, switch-Verzweigungen)<br />
+            + 1<br />
+            (Ein völlig leere Programm würde die Metrik 1 ergeben)
+          </li>
+          <li>Dies impliziert, dass ein Modul mit hoher Komplexität<br />
+            mehr Testaufwand erfordert als ein Modul mit geringer<br />
+            Komplexität, da eine höhere Komplexität mehr Pfade<br />
+            durch den Code anzeigt.<strong><br /></strong>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Welche OO-Metriken kennen Sie?</strong>
+        <ul>
+          <li>Weighted Methods per Class (WMC)
+          </li>
+          <li>Depth of the Inheritance Tree (DIT)
+          </li>
+          <li>Number Of Children (NOC)
+          </li>
+          <li>Coupling Between Objects (CBO)
+          </li>
+          <li>Response For a Class (RFC)
+          </li>
+          <li>Lack of COhesion in Methods (LCOM)
+            <ul>
+              <li>Weitere OO-Masse
+                <ul>
+                  <li>MHF Method Hiding Factor
+                  </li>
+                  <li>AHF Attribute Hiding Factor
+                  </li>
+                  <li>MIF Method Inheritance Factor
+                  </li>
+                  <li>AIF Attribute Inheritance Factor
+                  </li>
+                  <li>PF Polymorphism Factor
+                  </li>
+                  <li>CF Coupling Factor
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Goal Question Metric (GQM)</strong>
+        <ul>
+          <li>ist eine systematische Vorgehensweise zur Erstellung spezifischer Qualitätsmodelle im Bereich der Softwareentwicklung. Diese lässt sich als Baumstruktur darstellen. Als Wurzel steht das Ziel (Goal), das über die Knoten (Questions) zu den Blättern (Metric) verfeinert wird. Auf diesem Weg werden Fragen und Softwaremasse abgeleitet. Auf dem Weg von den Blättern zur Wurzel werden die gemessenen Werte interpretiert.<br />
+            Geeignete Metriken lassen sich in der Softwaremetrie identifizieren über die Beantwortung der folgenden Fragen:<br />
+            <ul>
+              <li>Welches Ziel soll durch die Messung erreicht werden? (Goal)<br />
+              </li>
+              <li>Was soll gemessen werden bzw. welche Fragen soll die Messung beantworten? (Question)<br />
+              </li>
+              <li>Welche Metrik(en) sind in der Lage, die notwendigen Eigenschaften zu beschreiben? (Metric) <strong><br /></strong>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Wie Funktioniert GQM?&nbsp;</strong>
+        <ul>
+          <li>GQM ist eine Anleitung, wie man systematisch<br />
+            Kriterien und Metriken bestimmt.
+            <ol>
+              <li>Relevante Charakteristika der Organisation, des<br />
+                Projekts oder Produkts identifizieren, die vermessen<br />
+                werden sollen
+              </li>
+              <li>Messziele identifizieren und eine Messplan konzipieren
+              </li>
+              <li>Festlegen des Datensammel-Verfahrens/der Metriken
+              </li>
+              <li>Daten sammeln/messen, analysiern und interpretieren
+              </li>
+              <li>Eine Post-Mortem-Analyse durchführen und die Daten<br />
+                interpretieren
+              </li>
+              <li>Erfahrungen zusammenfassen.
+              </li>
+            </ol>
+          </li>
+          <li>Besonders schwierig sind Schritte 3 bis 5
+          </li>
+          <li>Anfänger stellen zu viele Fragen
+          </li>
+          <li>Es sollte das Prinzip der schrittweisen Verfeinerung<br />
+            verfolgt werden
+          </li>
+          <li>GQM ist ein zyklischer Prozess.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </body>
 </html>
