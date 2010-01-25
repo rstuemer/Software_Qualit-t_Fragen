@@ -15,21 +15,184 @@
 </head>
 <body style="margin: 2cm; direction: ltr; max-width: 20.999cm;">
 <h1>Rambow 1</h1>
-<p>!!!!abkuerzungen !!!!<br />
-3kiss open closed principle<br />
-graphiken anschauen (hudson testen)<br />
-automatisierung (was sollte man automatisieren (wie weit))<br />
-!!!!unit testen, continious integration, automatisierte tests!!!!<br />
-</p>
 <ul>
-  <li>ISO Kriterien </li>
-  <li>- Funktionalit&auml;t </li>
-  <li>- Zuverl&auml;ssigkeit </li>
-  <li>- Benutzbarkeit </li>
-  <li>- Effizienz </li>
-  <li>- &Auml;nderbarkeit </li>
-  <li>-
-    &Uuml;bertragbarkeit</li>
+  <li><strong>!!!!abkuerzungen !!!!</strong>
+<ul>
+      <li>KISS
+        <ul>
+          <li>Keep it simple stupid<br />
+          </li>
+        </ul>
+      </li>
+      <li>DRY
+        <ul>
+          <li>Don‘t repeat yourself!<br />
+          </li>
+        </ul>
+      </li>
+      <li> Don't Live with Broken Windows
+        <ul>
+          <li>Wenn du schlechten, unlesbaren,<br />
+            ungetesteten Code findest mach ihn<br />
+            besser!<br />
+          </li>
+        </ul>
+      </li>
+      <li> Leuchtspur Munition
+        <ul>
+          <li>Verwende Prototypen um die Intention<br />
+            des Kunden herauszufinden<br />
+          </li>
+        </ul>
+      </li>
+      <li> Crash Early<br />
+        <ul>
+          <li>Ein Programm bei Fehlern lieber<br />
+            kontrolliert beenden, als in einen<br />
+          unkontrollierbaren zustand bringen</li>
+        </ul>
+      </li>
+      <li> Find Bugs Once
+        <ul>
+          <li>Once a human tester finds a bug, it should be the last time a human tester finds that bug. Automatic tests should check for it from then on.<br />
+          </li>
+        </ul>
+      </li>
+      <li> Keep it shy
+        <ul>
+          <li><br />
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>3kiss open closed principle<br />
+    graphiken anschauen (hudson testen)<br />
+    automatisierung (was sollte man automatisieren (wie weit))<br />
+  </li>
+  <li><strong>Unit-Tests</strong>
+    <ul>
+      <li>Sicherung der vorhandenen Funktionalität<br />
+      </li>
+      <li> Der Wunsch nach isolierten Testfällen führt<br />
+        zu besserer Modularisierung der SW<br />
+        <ul>
+          <li> man denkt in Units, also in funktional<br />
+            zusammengehörigen Code-Einheiten<br />
+            </li>
+        </ul>
+      </li>
+      <li> Tests spezifizieren die Funktionsweise von<br />
+        Programmteilen, Methoden<br />
+        </li>
+      <li> Software ohne Tests ist Legacy Code!<br />
+        und somit unwartbar</li>
+      <li>Verbreitetsten dynamischen, funktionalen<br />
+        Testverfahren.<br />
+      </li>
+      <li>Units sind die kleinsten sinnvoll zu testenden<br />
+        Teile eines Softwaresystems<br />
+      </li>
+      <li> Meist sind es Methoden in OO<br />
+      </li>
+      <li> Um sinnvoll zu Testen sollten mehrere Tests<br />
+        pro Methode geschrieben werden<br />
+      </li>
+      <li>Wenn etwas nicht testbar erscheint, liegt es<br />
+        oft an schlechter Programmstruktur oder zu<br />
+      wenig Wissen, um das Testen als solches.</li>
+      <li>Units werden in Isolation getestet<br />
+        <ul>
+          <li>Keine Datenbankzugriffe<br />
+            </li>
+          <li> Kein Aufruf von Methoden anderer Klassen oder<br />
+            Framework-Methdoden<br />
+            </li>
+          <li> Keine Netzwerk-Services<br />
+            </li>
+        </ul>
+      </li>
+      <li> Dadurch wird erreicht, das ein Fehler in einem<br />
+        nur sehr kleinen Programmteil auftreten kann<br />
+        </li>
+      <li> Beim Testen einer Methode sollte eine hohe<br />
+        Abdeckung das Ziel sein</li>
+    </ul>
+  </li>
+  <li><a href="http://martinfowler.com/articles/continuousIntegration.html">continious integration,</a></li>
+  <li><strong>automatisierte tests!!!!</strong>
+    <ul>
+      <li><strong>Push-Button-Tests</strong>
+        <ul>
+          <li>Testprogramm führt immer den gleichen Test<br />
+            durch<br />
+          </li>
+          <li>Wesentlich schneller als das Eingeben von<br />
+            Testdaten per Hand<br />
+          </li>
+          <li> Reproduzierbare Ergebnisse<br />
+          </li>
+          <li> Einfacher zu starten, prognostizierte<br />
+            häufigere Ausführung<br />
+          </li>
+          <li> Andere Entwickler können diesen Test<br />
+            ebenso ausführen, dient auch der<br />
+          Dokumentation des Moduls</li>
+        </ul>
+      </li>
+      <li><strong>Automatisierte Tests</strong>
+        <ul>
+          <li>Möglich wenn Push-Button-Tests vorliegen<br />
+          </li>
+          <li> Lokal gibt es Systeme wie Autotest, die bei<br />
+            Änderungen am Code, den Test automatisch<br />
+            ausführen<br />
+          </li>
+          <li> Besser und auch bei Einsatz von Autotest<br />
+          </li>
+          <li> Zentrale Codeverwaltung (Versionierungssystem)<br />
+          </li>
+          <li> Zentraler Test/CI - Server der beim CheckIn alle<br />
+            Tests durchführt<br />
+          </li>
+          <li> Continous Integration Server, eine Komponente der<br />
+            konstruktiven QS wird später noch weiter ausgeführt<br />
+          5</li>
+        </ul>
+      </li>
+      <li><strong>Vorteile der Automatisierung</strong>
+<ul>
+          <li>Ständige Testausführung<br />
+            <ul>
+              <li>Basierend auf Events, nicht (nur) manuell<br />
+              </li>
+            </ul>
+          </li>
+          <li> Test-Frameworks<br />
+            <ul>
+              <li>Strukturieren und organisieren Tests<br />
+              </li>
+              <li> Scripting, möglich um komplexere Testfälle zu<br />
+                entwickeln<br />
+              </li>
+              <li> Testserver (zentral) und Autotest (lokal)<br />
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>ISO Kriterien 
+    <ul>
+      <li> Funktionalit&auml;t </li>
+      <li> Zuverl&auml;ssigkeit </li>
+      <li> Benutzbarkeit </li>
+      <li> Effizienz </li>
+      <li>&Auml;nderbarkeit </li>
+      <li>&Uuml;bertragbarkeit</li>
+    </ul>
+  </li>
   <li>Wieso
     sollte man sie anstreben? </li>
   <li>Wovon
